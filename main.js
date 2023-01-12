@@ -69,25 +69,32 @@ fetch('https://pokeapi.co/api/v2/pokemon/'+rand)
         guess= document.querySelector("#guess")
         btn = document.querySelector("#btn")
         btn.addEventListener("click", ()=> {
-            oui= new Audio('sound_effects/its.mp3').play()
-            
-            let utterance = new SpeechSynthesisUtterance(data["name"]);
-            utterance.lang = 'en-US';
-            speechSynthesis.speak(utterance);
 
             rep =document.querySelector("#answer")
             inside = document.createElement("p")
-            rep.innerHTML=""
-            if(guess.value===data["name"]){
-                console.log("OUI")
-                inside.innerHTML="that's the right answer !"
+            
+            if (guess.value==="john cena") {
+                new Audio('sound_effects/john_cena.mp3').play()
+                inside.innerHTML="OF COURSE ITS JOHN CENA !!!!!!!!!!"
                 rep.appendChild(inside)
+                const img = document.querySelector("img")
+                img.setAttribute("src", "https://static.posters.cz/image/1300/affiches-et-posters/wwe-john-cena-09-i8508.jpg");
             }else{
-                console.log("NON")
-                inside.innerHTML="that's the wrong answer !"
-                rep.appendChild(inside)
+                new Audio('sound_effects/its.mp3').play()
+                let utterance = new SpeechSynthesisUtterance(data["name"]);
+                utterance.lang = 'en-US';
+                speechSynthesis.speak(utterance);
+                rep.innerHTML=""
+                if(guess.value===data["name"]){
+                    console.log("OUI")
+                    inside.innerHTML="that's the right answer !"
+                    rep.appendChild(inside)
+                }else{
+                    console.log("NON")
+                    inside.innerHTML="that's the wrong answer !"
+                    rep.appendChild(inside)
+                }
             }
-
         })
     });
 
