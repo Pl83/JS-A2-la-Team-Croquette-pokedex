@@ -221,4 +221,12 @@
   height: 80px;
 }
 
+.hiddenn {
+  display: none;
+}
+
+.pokemon_area h2 {
+  text-align: center;
+}
+
 /*# sourceMappingURL=style.css.map */
