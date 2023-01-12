@@ -69,7 +69,7 @@ fetch('https://pokeapi.co/api/v2/pokemon/'+rand)
         guess= document.querySelector("#guess")
         btn = document.querySelector("#btn")
         btn.addEventListener("click", ()=> {
-            oui= new Audio('its.mp3').play()
+            oui= new Audio('sound_effects/its.mp3').play()
             
             let utterance = new SpeechSynthesisUtterance(data["name"]);
             utterance.lang = 'en-US';
@@ -93,5 +93,5 @@ fetch('https://pokeapi.co/api/v2/pokemon/'+rand)
 
 btn2 = document.querySelector("#sound")
 btn2.addEventListener("click", ()=> {
-    new Audio('whos-that-pokemon.mp3').play()
+    new Audio('sound_effects/whos-that-pokemon.mp3').play()
 })
