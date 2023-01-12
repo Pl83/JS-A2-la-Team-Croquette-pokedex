@@ -56,6 +56,17 @@
     overflow: auto;
   }
 }
+.stat-bar {
+  width: 250px;
+  height: 20px;
+  background-color: #ddd;
+  border: 1px solid #000;
+}
+.stat-bar .progress {
+  background-color: blue;
+  height: 100%;
+}
+
 
 .sensor {
   button {
@@ -143,6 +154,7 @@
   //background-color: green;
   grid-row-start: 4;
   grid-column-start: 4;
+  display: flex;
   input {
     width: 93%;
     height: 50px;
@@ -151,8 +163,18 @@
     background-color: #E6E6E6;
     font-family: 'Press Start 2P';
     font-size: 20px;
+
+    button{
+      height: 50px;
+      width: 7%;
+
+    }
+
   }
-} 
+}
+
+
+
 
 .bottom-modes {
   grid-row-start: 5;
