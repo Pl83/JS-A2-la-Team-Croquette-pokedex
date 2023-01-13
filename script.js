@@ -115,7 +115,7 @@ tabs.forEach(element => {
                     let pik = document.createElement('div')
                     pik.classList.add('droptarget')
                     pik.innerHTML = `
-                    <div class="poke"  draggable="true" id="dragtarget" >
+                    <div class="poke"  draggable="true" id="${name}" >
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${Npokemon}.png" draggable="false">
                     </div>
                     `
@@ -173,7 +173,7 @@ tabs.forEach(element => {
                     let pik = document.createElement('div')
                     pik.classList.add('droptarget')
                     pik.innerHTML = `
-                    <div class="poke"  draggable="true" id="dragtarget" >
+                    <div class="poke"  draggable="true" id="${name}" >
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${Npokemon}.png" draggable="false">
                     </div>
                     `
@@ -378,7 +378,7 @@ function searchPokemon() {
             let pik = document.createElement('div')
                     pik.classList.add('droptarget')
                     pik.innerHTML = `
-                    <div class="poke"  draggable="true" id="dragtarget" >
+                    <div class="poke"  draggable="true" id="${result.name}" >
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${result.id}.png" draggable="false">
                     </div>
                     `
@@ -581,7 +581,7 @@ function get_pokement(poke){
                     let pik = document.createElement('div')
                     pik.classList.add('droptarget')
                     pik.innerHTML = `
-                    <div class="poke"  draggable="true" id="dragtarget" >
+                    <div class="poke"  draggable="true" id="${name}" >
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${Npokemon}.png" draggable="false">
                     </div>
                     `

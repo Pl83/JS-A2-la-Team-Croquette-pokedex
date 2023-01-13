@@ -73,6 +73,7 @@ fetch('https://pokeapi.co/api/v2/pokemon/'+rand)
         guess= document.querySelector("#guess")
         btn = document.querySelector("#btn")
         btn.addEventListener("click", ()=> {
+            img.classList.remove("noir")
 
             rep =document.querySelector("#answer")
             inside = document.createElement("p")
