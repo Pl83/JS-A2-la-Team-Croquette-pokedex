@@ -372,37 +372,119 @@ function searchPokemon() {
                     <div id="Stat1">
                         <p>${result.stats[0].stat.name}: ${result.stats[0].base_stat}</p>
                          <div class="stat-bar">
-                        <div class="progress" style="width:${(result.stats[0].base_stat/250)*100}%"></div>
+                        <div class="progress1" style="width:${(result.stats[0].base_stat/250)*100}%"></div>
+                        <script>
+                        let progressWidthBarStat1 = document.querySelector(".progress1").style.width;
+                        let progressColorBarStat1 = document.querySelector(".progress1").style.color;
+                        if(progressWidthBarStat1 <= 69){
+                            progressColorBarStat1 = 'red';
+                        }
+                        if(progressWidthBarStat1 >= 70 &&  progressWidthBarStat1 <= 99){
+                            progressColorBarStat1 = 'yellow';
+                        }
+                        if(progressWidthBarStat1 >= 100){
+                            progressColorBarStat1 = 'green';
+                        }
+                        </script>
                       </div>                   
                     </div>
                     <div id="Stat2">
                         <p>${result.stats[1].stat.name}: ${result.stats[1].base_stat}</p>
                          <div class="stat-bar">
-                        <div class="progress" style="width:${(result.stats[1].base_stat/250)*100}%"></div>
+                        <div class="progress2" style="width:${(result.stats[1].base_stat/250)*100}%">
+                        <script>
+                        let progressWidthBarStat2 = document.querySelector(".progress2").style.width;
+                        let progressColorBarStat2 = document.querySelector(".progress2").style.color;
+                        if(progressWidthBarStat2 <= 69){
+                            progressColorBarStat2 = 'red';
+                        }
+                        if(progressWidthBarStat2 >= 70 && progressWidthBarStat2 <= 99){
+                            progressColorBarStat2 = 'yellow';
+                        }
+                        if(progressWidthBarStat2 >= 100){
+                            progressColorBarStat2 = 'green';
+                        }
+                        </script>
+</div>
                       </div>                   
                     </div>
                     <div id="Stat3">
                         <p>${result.stats[2].stat.name}: ${result.stats[2].base_stat}</p>
                          <div class="stat-bar">
-                        <div class="progress" style="width:${(result.stats[2].base_stat/250)*100}%"></div>
+                        <div class="progress3" style="width:${(result.stats[2].base_stat/250)*100}%"></div>
+                        <script>
+                        let progressWidthBarStat3 = document.querySelector(".progress3").style.width;
+                        let progressColorBarStat3 = document.querySelector(".progress3").style.color;
+                        if(progressWidthBarStat3 <= 69){
+                            progressColorBarStat3 = 'red';
+                        }
+                        if(progressWidthBarStat3 >= 70 && progressWidthBarStat2 <= 99){
+                            progressColorBarStat3 = 'yellow';
+                        }
+                        if(progressWidthBarStat3 >= 100){
+                            progressColorBarStat3 = 'green';
+                        }
+                        </script>
                       </div>                   
                     </div>
                     <div id="Stat4">
                         <p>${result.stats[3].stat.name}: ${result.stats[3].base_stat}</p>
                          <div class="stat-bar">
-                        <div class="progress" style="width:${(result.stats[3].base_stat/250)*100}%"></div>
+                        <div class="progress4" style="width:${(result.stats[3].base_stat/250)*100}%"></div>
+                        <script>
+                        let progressWidthBarStat4 = document.querySelector(".progress4").style.width;
+                        let progressColorBarStat4 = document.querySelector(".progress4").style.color;
+                        if(progressWidthBarStat4 <= 69){
+                            progressColorBarStat4 = 'red';
+                        }
+                        if(progressWidthBarStat4 >= 70 && progressWidthBarStat4 <= 99){
+                            progressColorBarStat4 = 'yellow';
+                        }
+                        if(progressWidthBarStat4 >= 100){
+                            progressColorBarStat4 = 'green';
+                        }
+                        </script>
+                      </div>       
                       </div>                   
                     </div>
                      <div id="Stat5">
                         <p>${result.stats[4].stat.name}: ${result.stats[4].base_stat}</p>
                          <div class="stat-bar">
-                        <div class="progress" style="width:${(result.stats[4].base_stat/250)*100}%"></div>
+                        <div class="progress5" style="width:${(result.stats[4].base_stat/250)*100}%"></div>
+                        <script>
+                        let progressWidthBarStat5 = document.querySelector(".progress5").style.width;
+                        let progressColorBarStat5 = document.querySelector(".progress5").style.color;
+                        if(progressWidthBarStat5 <= 69){
+                            progressColorBarStat5 = 'red';
+                        }
+                        if(progressWidthBarStat5 >= 70 && progressWidthBarStat5 <= 99){
+                            progressColorBarStat5 = 'yellow';
+                        }
+                        if(progressWidthBarStat5 >= 100){
+                            progressColorBarStat5 = 'green';
+                        }
+                        </script>
+                      </div>       
                       </div>                   
                     </div>
                     <div id="Stat6">
                         <p>${result.stats[5].stat.name}: ${result.stats[5].base_stat}</p>
                          <div class="stat-bar">
-                        <div class="progress" style="width:${(result.stats[5].base_stat/250)*100}%"></div>
+                        <div class="progress6" style="width:${(result.stats[5].base_stat/250)*100}%"></div>
+                        <script>
+                        let progressWidthBarStat6 = document.querySelector(".progress6").style.width;
+                        let progressColorBarStat6 = document.querySelector(".progress6").style.color;
+                        if(progressWidthBarStat6 <= 69){
+                            progressColorBarStat6 = 'red';
+                        }
+                        if(progressWidthBarStat6 >= 70 && progressWidthBarStat6 <= 99){
+                            progressColorBarStat6= 'yellow';
+                        }
+                        if(progressWidthBarStat6 >= 100){
+                            progressColorBarStat6 = 'green';
+                        }
+                        </script>
+                      </div>       
                       </div>                   
                     </div>
                         `
