@@ -12,7 +12,7 @@ tabs.forEach(element => {
             let upArrow = document.querySelector('.up_arrow');
             let downArrow = document.querySelector('.down_arrow');
 
-            document.querySelector('.pokemon_area').classList.add('scrollinger');
+            
 
                 fetch(`https://pokeapi.co/api/v2/pokemon/${Npokemon}`)
                 .then(response => response.json())
@@ -224,6 +224,7 @@ tabs.forEach(element => {
 
             downArrow.addEventListener('click', function () {
                 console.log('Current poke' + Npokemon)
+                document.querySelector('.pokemon_area').classList.add('scrollinger');
                 document.querySelector('.pokemon_area').innerHTML ='';
                 document.querySelector('.stats-display').innerHTML ='';
                 fetch(`https://pokeapi.co/api/v2/pokemon-species/${Npokemon}/`)
@@ -290,6 +291,7 @@ tabs.forEach(element => {
 
         } else if (element.value === 'b'){
             document.querySelector('.pokemon_area').classList.remove('scrollinger');
+            document.querySelector('.stats-display').innerHTML ='';
             // let LeftArrow = document.querySelector('.left_arrow');
             // let RightArrow = document.querySelector('.right_arrow');
             
@@ -354,6 +356,10 @@ function searchPokemon() {
                         <div class="progress" style="width:${(result.stats[0].base_stat/250)*100}%"></div>
                       </div>`;
             document.querySelector('.stats-display').innerHTML = statBar;
+            console.log(result);
+            document.body.style.backgroundImage = `url('img/${result.types[0].type.name}.png')`;
+            const audio = new Audio(`https://veekun.com/dex/media/pokemon/cries/${result.id}.ogg`);
+            audio.play();
 
             searchContainer.innerHTML = `
                 <h2>${result.name}</h2>
@@ -494,7 +500,63 @@ function searchPokemon() {
     xhr.send();
 
 }
+function get_pokement(poke){
+    console.log(poke)
+    document.querySelector('.card').classList.add('hiddenn')
+    let allpokemon = fetch('https://pokeapi.co/api/v2/pokemon/'+ poke)
+    allpokemon.then(function (response) {
+        return response.json();
+    }).then(function (data) {
+        console.log(data);
 
+        let div = document.createElement('div')
+        div.classList.add('pokelone')
+        let div2 = document.createElement('div')
+        div2.innerHTML = `<div><button onclick="removehidden()">X</button><h2>${data.name}</h2><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${data.id}.png"></div>`
+        document.querySelector('.pokemon_area').appendChild(div)
+        document.querySelector('.pokelone').appendChild(div2)
+
+
+        // récupère les nom, talents et capacités
+        const name = data.name;
+        const abilities = data.abilities.map(ability => ability.ability.name);
+        const moves = data.moves.map(move => move.move.name);
+        const types = data.types.map(type => type.type.name);
+        const height = data.height;
+        const weight = data.weight;
+        const statsName = data.stats.map(stat => stat.stat.name);
+        const statsValue = data.stats.map(stat => stat.base_stat);
+        const alternate = statsName.map((e,i) => `${e} : ${statsValue[i]}`);
+        const id = data.id;
+
+        // Pick 4 random moves from the array
+        let randomMoves = [];
+        for (let i = 0; i < 4; i++) {
+            let randomIndex = Math.floor(Math.random() * moves.length);
+            randomMoves.push(moves[randomIndex]);
+        }
+
+
+        document.querySelector('.stats-display').innerHTML ='';
+
+        document.body.style.backgroundImage = `url('img/${types[0]}.png')`;
+        const audio = new Audio(`https://veekun.com/dex/media/pokemon/cries/${id}.ogg`);
+        audio.play();
+
+        let divb = document.createElement('div')
+        divb.innerHTML = `<h2>${name}</h2><br> <p>Abilities: ${abilities.join(", ")}</p><br><p>Types: ${types.join(", ")}</p>
+                    <br>
+                    <p>Height: ${height} décimétre</p>
+                    <p>Weight: ${weight} gramme</p>
+                    <br>
+                    <p>Stats: ${alternate.join(", ")}</p>
+                    <br><p>Random moves: ${randomMoves.join(", ")}</p>`
+        document.querySelector('.stats-display').appendChild(divb)
+
+
+
+    });
+};
 
 function removehidden(){
     document.querySelector('.card').classList.remove('hiddenn')

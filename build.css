@@ -107,6 +107,7 @@
   grid-column-start: 1;
   grid-row-start: 2;
   grid-row-end: 5;
+  height: 60px;
 }
 #actions .a {
   border-radius: 50%;
@@ -115,6 +116,10 @@
   background-color: #404040;
   border: 5px solid #303030;
   cursor: pointer;
+}
+#actions img {
+  width: 100%;
+  height: auto;
 }
 
 #cross {
