@@ -1,5 +1,7 @@
 window.onload = function () {document.querySelector('.god').click(); }; //only do not move it, it need to be the first line
 var Npokemon = 1;
+
+
 let tabs = document.querySelectorAll('.tabs');
 //console.log(tabs.innerHTML)
 tabs.forEach(element => {
@@ -50,9 +52,6 @@ tabs.forEach(element => {
                     <p>Possible set: ${randomMoves.join(", ")}
                     `
                     document.querySelector('.stats-display').appendChild(dive)
-
-                    // const audio = new Audio(`https://veekun.com/dex/media/pokemon/cries/${Npokemon}.ogg`);
-                    // audio.play();
 
                     document.querySelector('.a').innerHTML ='';
                     
@@ -109,6 +108,7 @@ tabs.forEach(element => {
                     document.querySelector('.stats-display').appendChild(dive)
 
                     const audio = new Audio(`https://veekun.com/dex/media/pokemon/cries/${Npokemon}.ogg`);
+                    audio.volume = 0.3;
                     audio.play();
 
                     document.querySelector('.a').innerHTML ='';
@@ -167,6 +167,7 @@ tabs.forEach(element => {
                     document.querySelector('.stats-display').appendChild(dive)
 
                     const audio = new Audio(`https://veekun.com/dex/media/pokemon/cries/${Npokemon}.ogg`);
+                    audio.volume = 0.3;
                     audio.play();
 
                     document.querySelector('.a').innerHTML ='';
@@ -372,6 +373,7 @@ function searchPokemon() {
             console.log(result);
             document.body.style.backgroundImage = `url('img/${result.types[0].type.name}.png')`;
             const audio = new Audio(`https://veekun.com/dex/media/pokemon/cries/${result.id}.ogg`);
+            audio.volume = 0.3;
             audio.play();
             Npokemon = result.id;
             document.querySelector('.a').innerHTML ='';
@@ -492,6 +494,7 @@ function get_pokement(poke){
 
         document.body.style.backgroundImage = `url('img/${types[0]}.png')`;
         const audio = new Audio(`https://veekun.com/dex/media/pokemon/cries/${id}.ogg`);
+        audio.volume = 0.3;
         audio.play();
 
         let divb = document.createElement('div')
@@ -523,7 +526,372 @@ function removehidden(){
     document.querySelector('.stats-display').innerHTML ='';
 }
 
+var selectedButton = '0';
+
+document.addEventListener('DOMContentLoaded', function() {
+    let button = document.querySelector(".tn[value='1']");
+    button.classList.add("selected");
+    selectedButton = '1'
+    console.log('validate')
+    var team;
+    if(localStorage.getItem("team"+selectedButton)){
+        team = JSON.parse(localStorage.getItem("team"+selectedButton));
+        console.log(team);
+        let droparea = document.querySelectorAll('.droptarget');
+        droparea.forEach((e,i) => {
+            fetch(`https://pokeapi.co/api/v2/pokemon/${team[i]}`)
+                .then(response => response.json())
+                .then(data => {
+                    //console.log(data)
+                    const name = data.name;
+                    const id = data.id;
+                    e.innerHTML = `<div class="poke"  draggable="true" id="${name}" >
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png" draggable="false">
+                    </div>`
+                });
+            
+        });
+    }
+});
+document.addEventListener('DOMContentLoaded', function() {
+    var btn1 = document.querySelector(".tn[value='1']");
+    var btn2 = document.querySelector(".tn[value='2']");
+    var btn3 = document.querySelector(".tn[value='3']");
+    var btn4 = document.querySelector(".tn[value='4']");
+    var btn5 = document.querySelector(".tn[value='5']");
+    var btn6 = document.querySelector(".tn[value='6']");
+    btn1.addEventListener("click", function() {
+        selectedButton = '1';
+        console.log(selectedButton);
+        btn1.classList.add("selected");
+        btn2.classList.remove("selected");
+        btn3.classList.remove("selected");
+        btn4.classList.remove("selected");
+        btn5.classList.remove("selected");
+        btn6.classList.remove("selected");
+        let droptargets = document.querySelectorAll("header .droptarget");
+        for (let i = 0; i < droptargets.length; i++) {
+        droptargets[i].innerHTML = '';
+        }
+        var team;
+        if(localStorage.getItem("team"+selectedButton)){
+            team = JSON.parse(localStorage.getItem("team"+selectedButton));
+            console.log(team);
+            let droparea = document.querySelectorAll('.droptarget');
+            droparea.forEach((e,i) => {
+                fetch(`https://pokeapi.co/api/v2/pokemon/${team[i]}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data)
+                        const name = data.name;
+                        const id = data.id;
+                        e.innerHTML = `<div class="poke"  draggable="true" id="${name}" >
+                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png" draggable="false">
+                        </div>`
+                    });
+                
+            });
+        }
+    });
+    btn2.addEventListener("click", function() {
+        selectedButton = '2';
+        console.log(selectedButton);
+        btn2.classList.add("selected");
+        btn1.classList.remove("selected");
+        btn3.classList.remove("selected");
+        btn4.classList.remove("selected");
+        btn5.classList.remove("selected");
+        btn6.classList.remove("selected");
+        let droptargets = document.querySelectorAll("header .droptarget");
+        for (let i = 0; i < droptargets.length; i++) {
+        droptargets[i].innerHTML = '';
+        }
+        var team;
+        if(localStorage.getItem("team"+selectedButton)){
+            team = JSON.parse(localStorage.getItem("team"+selectedButton));
+            console.log(team);
+            let droparea = document.querySelectorAll('.droptarget');
+            droparea.forEach((e,i) => {
+                fetch(`https://pokeapi.co/api/v2/pokemon/${team[i]}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data)
+                        const name = data.name;
+                        const id = data.id;
+                        e.innerHTML = `<div class="poke"  draggable="true" id="${name}" >
+                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png" draggable="false">
+                        </div>`
+                    });
+                
+            });
+        }
+    });
+    btn3.addEventListener("click", function() {
+        selectedButton = '3';
+        console.log(selectedButton);
+        btn3.classList.add("selected");
+        btn2.classList.remove("selected");
+        btn1.classList.remove("selected");
+        btn4.classList.remove("selected");
+        btn5.classList.remove("selected");
+        btn6.classList.remove("selected");
+        let droptargets = document.querySelectorAll("header .droptarget");
+        for (let i = 0; i < droptargets.length; i++) {
+        droptargets[i].innerHTML = '';
+        }
+        var team;
+        if(localStorage.getItem("team"+selectedButton)){
+            team = JSON.parse(localStorage.getItem("team"+selectedButton));
+            console.log(team);
+        }
+        var team;
+        if(localStorage.getItem("team"+selectedButton)){
+            team = JSON.parse(localStorage.getItem("team"+selectedButton));
+            console.log(team);
+            let droparea = document.querySelectorAll('.droptarget');
+            droparea.forEach((e,i) => {
+                fetch(`https://pokeapi.co/api/v2/pokemon/${team[i]}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data)
+                        const name = data.name;
+                        const id = data.id;
+                        e.innerHTML = `<div class="poke"  draggable="true" id="${name}" >
+                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png" draggable="false">
+                        </div>`
+                    });
+                
+            });
+        }
+    });
+    btn4.addEventListener("click", function() {
+        selectedButton = '4';
+        console.log(selectedButton);
+        btn4.classList.add("selected");
+        btn2.classList.remove("selected");
+        btn3.classList.remove("selected");
+        btn1.classList.remove("selected");
+        btn5.classList.remove("selected");
+        btn6.classList.remove("selected");
+        let droptargets = document.querySelectorAll("header .droptarget");
+        for (let i = 0; i < droptargets.length; i++) {
+        droptargets[i].innerHTML = '';
+        }
+        var team;
+        if(localStorage.getItem("team"+selectedButton)){
+            team = JSON.parse(localStorage.getItem("team"+selectedButton));
+            console.log(team);
+            let droparea = document.querySelectorAll('.droptarget');
+            droparea.forEach((e,i) => {
+                fetch(`https://pokeapi.co/api/v2/pokemon/${team[i]}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data)
+                        const name = data.name;
+                        const id = data.id;
+                        e.innerHTML = `<div class="poke"  draggable="true" id="${name}" >
+                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png" draggable="false">
+                        </div>`
+                    });
+                
+            });
+        }
+    });
+    btn5.addEventListener("click", function() {
+        selectedButton = '5';
+        console.log(selectedButton);
+        btn5.classList.add("selected");
+        btn2.classList.remove("selected");
+        btn3.classList.remove("selected");
+        btn4.classList.remove("selected");
+        btn1.classList.remove("selected");
+        btn6.classList.remove("selected");
+        let droptargets = document.querySelectorAll("header .droptarget");
+        for (let i = 0; i < droptargets.length; i++) {
+        droptargets[i].innerHTML = '';
+        }
+        var team;
+        if(localStorage.getItem("team"+selectedButton)){
+            team = JSON.parse(localStorage.getItem("team"+selectedButton));
+            console.log(team);
+        }
+        var team;
+        if(localStorage.getItem("team"+selectedButton)){
+            team = JSON.parse(localStorage.getItem("team"+selectedButton));
+            console.log(team);
+            let droparea = document.querySelectorAll('.droptarget');
+            droparea.forEach((e,i) => {
+                fetch(`https://pokeapi.co/api/v2/pokemon/${team[i]}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data)
+                        const name = data.name;
+                        const id = data.id;
+                        e.innerHTML = `<div class="poke"  draggable="true" id="${name}" >
+                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png" draggable="false">
+                        </div>`
+                    });
+                
+            });
+        }
+    });
+    btn6.addEventListener("click", function() {
+        selectedButton = '6';
+        console.log(selectedButton);
+        btn6.classList.add("selected");
+        btn2.classList.remove("selected");
+        btn3.classList.remove("selected");
+        btn4.classList.remove("selected");
+        btn5.classList.remove("selected");
+        btn1.classList.remove("selected");
+        let droptargets = document.querySelectorAll("header .droptarget");
+        for (let i = 0; i < droptargets.length; i++) {
+        droptargets[i].innerHTML = '';
+        }
+        var team;
+        if(localStorage.getItem("team"+selectedButton)){
+            team = JSON.parse(localStorage.getItem("team"+selectedButton));
+            console.log(team);
+            let droparea = document.querySelectorAll('.droptarget');
+            droparea.forEach((e,i) => {
+                fetch(`https://pokeapi.co/api/v2/pokemon/${team[i]}`)
+                    .then(response => response.json())
+                    .then(data => {
+                        console.log(data)
+                        const name = data.name;
+                        const id = data.id;
+                        e.innerHTML = `<div class="poke"  draggable="true" id="${name}" >
+                        <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png" draggable="false">
+                        </div>`
+                    });
+                
+            });
+        }
+    });
+});
+
+var team1 = [];
+var team2 = [];
+var team3 = [];
+var team4 = [];
+var team5 = [];
+var team6 = [];
 
 
+document.addEventListener('DOMContentLoaded', function() {
+    let save = document.querySelector(".save");
+    save.addEventListener("click", function() {
+    console.log("click");
+    if (selectedButton === '1'){
+        console.log('bliat')
+        team1 = [];
+        let droptargets = document.querySelectorAll("header .droptarget");
+        let poke = document.getElementsByClassName("poke");
+        for (let i = 0; i < droptargets.length; i++) {
+            for (let j = 0; j < poke.length; j++) {
+            if (droptargets[i].contains(poke[j])) {
+                team1.push(poke[j].id);
+            }
+            }
+        }
+        if(team1.length > 0){
+            console.log(team1);
+            localStorage.setItem("team1", JSON.stringify(team1));
 
+        }else{console.log("non");}
+
+    } else if (selectedButton === '2'){
+        console.log('bliat2')
+        team2 = [];
+        let droptargets = document.querySelectorAll("header .droptarget");
+        let poke = document.getElementsByClassName("poke");
+        for (let i = 0; i < droptargets.length; i++) {
+            for (let j = 0; j < poke.length; j++) {
+            if (droptargets[i].contains(poke[j])) {
+                team2.push(poke[j].id);
+            }
+            }
+        }
+        if(team2.length > 0){
+            console.log(team2);
+            localStorage.setItem("team2", JSON.stringify(team2));
+
+        }else{console.log("non");}
+
+    } else if (selectedButton === '3'){
+        console.log('bliat3')
+        team3 = [];
+        let droptargets = document.querySelectorAll("header .droptarget");
+        let poke = document.getElementsByClassName("poke");
+        for (let i = 0; i < droptargets.length; i++) {
+            for (let j = 0; j < poke.length; j++) {
+            if (droptargets[i].contains(poke[j])) {
+                team3.push(poke[j].id);
+            }
+            }
+        }
+        if(team3.length > 0){
+            console.log(team3);
+            localStorage.setItem("team3", JSON.stringify(team3));
+
+        }else{console.log("non");}
+
+    } else if (selectedButton === '4'){
+        console.log('bliat4')
+        team4 = [];
+        let droptargets = document.querySelectorAll("header .droptarget");
+        let poke = document.getElementsByClassName("poke");
+        for (let i = 0; i < droptargets.length; i++) {
+            for (let j = 0; j < poke.length; j++) {
+            if (droptargets[i].contains(poke[j])) {
+                team4.push(poke[j].id);
+            }
+            }
+        }
+        if(team4.length > 0){
+            console.log(team4);
+            localStorage.setItem("team4", JSON.stringify(team4));
+
+        }else{console.log("non");}
+
+    } else if (selectedButton === '5'){
+        console.log('bliat5')
+        team5 = [];
+        let droptargets = document.querySelectorAll("header .droptarget");
+        let poke = document.getElementsByClassName("poke");
+        for (let i = 0; i < droptargets.length; i++) {
+            for (let j = 0; j < poke.length; j++) {
+            if (droptargets[i].contains(poke[j])) {
+                team5.push(poke[j].id);
+            }
+            }
+        }
+        if(team5.length > 0){
+            console.log(team5);
+            localStorage.setItem("team5", JSON.stringify(team5));
+
+        }else{console.log("non");}
+
+    } else if (selectedButton === '6'){
+        console.log('bliat6')
+        team6 = [];
+        let droptargets = document.querySelectorAll("header .droptarget");
+        let poke = document.getElementsByClassName("poke");
+        for (let i = 0; i < droptargets.length; i++) {
+            for (let j = 0; j < poke.length; j++) {
+            if (droptargets[i].contains(poke[j])) {
+                team6.push(poke[j].id);
+            }
+            }
+        }
+        if(team6.length > 0){
+            console.log(team6);
+            localStorage.setItem("team6", JSON.stringify(team6));
+
+        }else{console.log("non");}
+
+    }
+        
+    });
+});
 

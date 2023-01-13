@@ -2,6 +2,7 @@ function active(){
     document.querySelector("nav").classList.toggle('nav_active')
     document.querySelector("svg").classList.toggle('svg-active')
     document.querySelector(".slots").classList.toggle('img-active')
+    document.querySelector(".footer").classList.toggle('footer-active')
 }
 
 

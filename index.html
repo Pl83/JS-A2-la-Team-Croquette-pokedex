@@ -5,6 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="script.js" defer></script>
+  <script src="music.js" defer></script>
   <script src="konami.js" defer></script>
   <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js" defer></script>
   <link rel="stylesheet" href="build.css">
@@ -28,14 +29,20 @@
             <div class="droptarget"></div>
             <div class="droptarget"></div>
             <div class="droptarget"></div>
+            <button class="save">Save</button>
         </div>
     </nav>
+    
 </header>
 <main>
 
   <div id="pokedex">
     <div class="sensor">
-      <button></button>
+      <button class="play-button"></button>
+    </div>
+    <div class="controleraudio">
+      <div class="audiobtn audioup">🔊</div>
+      <div class="audiobtn audiodw">🔉</div>
     </div>
     <div class="camera-display pokemon_area" id="search-results">
 
@@ -95,14 +102,14 @@
   </div>
 
 </main>
-<footer>
+<footer class="footer">
   <div class="lower">
-    <button>1</button>
-    <button>2</button>
-    <button>3</button>
-    <button>4</button>
-    <button>5</button>
-    <button>6</button>
+    <button class="tn tn1" value="1">1</button>
+    <button class="tn tn2" value="2">2</button>
+    <button class="tn tn3" value="3">3</button>
+    <button class="tn tn4" value="4">4</button>
+    <button class="tn tn5" value="5">5</button>
+    <button class="tn tn6" value="6">6</button>
   </div>
 </footer>
 
