@@ -435,6 +435,12 @@ function get_pokement(poke){
         const name = data.name;
         const abilities = data.abilities.map(ability => ability.ability.name);
         const moves = data.moves.map(move => move.move.name);
+        const types = data.types.map(type => type.type.name);
+        const height = data.height;
+        const weight = data.weight;
+        const statsName = data.stats.map(stat => stat.stat.name);
+        const statsValue = data.stats.map(stat => stat.base_stat);
+        const alternate = statsName.map((e,i) => `${e} : ${statsValue[i]}`);
 
         // Pick 4 random moves from the array
         let randomMoves = [];
@@ -444,22 +450,19 @@ function get_pokement(poke){
         }
 
 
-        document.querySelector('.pokename').innerHTML ='';
-        document.querySelector('.Ability').innerHTML ='';
-        document.querySelector('.movesset').innerHTML ='';
+        document.querySelector('.stats-display').innerHTML ='';
+;
 
 
         let divb = document.createElement('div')
-        divb.innerHTML = `<h2>${name}</h2>`
-        document.querySelector('.pokename').appendChild(divb)
-
-        let divc = document.createElement('div')
-        divc.innerHTML = `<p>Abilities: ${abilities.join(", ")}</p>`
-        document.querySelector('.Ability').appendChild(divc)
-
-        let divd = document.createElement('div')
-        divd.innerHTML = `<p>Random moves: ${randomMoves.join(", ")}</p>`
-        document.querySelector('.movesset').appendChild(divd)
+        divb.innerHTML = `<h2>${name}</h2><br> <p>Abilities: ${abilities.join(", ")}</p><br><p>Types: ${types.join(", ")}</p>
+                    <br>
+                    <p>Height: ${height} décimétre</p>
+                    <p>Weight: ${weight} gramme</p>
+                    <br>
+                    <p>Stats: ${alternate.join(", ")}</p>
+                    <br><p>Random moves: ${randomMoves.join(", ")}</p>`
+        document.querySelector('.stats-display').appendChild(divb)
 
 
 
