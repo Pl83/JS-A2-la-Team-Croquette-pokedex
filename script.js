@@ -1,12 +1,12 @@
 window.onload = function () {document.querySelector('.god').click(); }; //only do not move it, it need to be the first line
-
+var Npokemon = 1;
 let tabs = document.querySelectorAll('.tabs');
 //console.log(tabs.innerHTML)
 tabs.forEach(element => {
     element.addEventListener('click', function () {
         if (element.value === 'a'){ //button a et bouton par defaut
 
-            var Npokemon = 1;
+            
             let LeftArrow = document.querySelector('.left_arrow');
             let RightArrow = document.querySelector('.right_arrow');
             let upArrow = document.querySelector('.up_arrow');
@@ -89,7 +89,7 @@ tabs.forEach(element => {
                         let randomIndex = Math.floor(Math.random() * moves.length);
                         randomMoves.push(moves[randomIndex]);
                     }
-
+                    document.querySelector('.pokemon_area').classList.remove('scrollinger');
                     document.querySelector('#pokemon-search').value ='';
                     document.querySelector('.pokemon_area').innerHTML ='';
                     document.querySelector('.stats-display').innerHTML ='';
@@ -147,6 +147,7 @@ tabs.forEach(element => {
                         let randomIndex = Math.floor(Math.random() * moves.length);
                         randomMoves.push(moves[randomIndex]);
                     }
+                    document.querySelector('.pokemon_area').classList.remove('scrollinger');
                     document.querySelector('#pokemon-search').value ='';
                     document.querySelector('.pokemon_area').innerHTML ='';
                     document.querySelector('.stats-display').innerHTML ='';
@@ -341,9 +342,6 @@ tabs.forEach(element => {
                 };
             }
         }
-
-
-
         else if (element.value === 'c'){
             console.log('c')
             
@@ -375,7 +373,7 @@ function searchPokemon() {
             document.body.style.backgroundImage = `url('img/${result.types[0].type.name}.png')`;
             const audio = new Audio(`https://veekun.com/dex/media/pokemon/cries/${result.id}.ogg`);
             audio.play();
-
+            Npokemon = result.id;
             document.querySelector('.a').innerHTML ='';
             let pik = document.createElement('div')
                     pik.classList.add('droptarget')
@@ -553,7 +551,7 @@ function get_pokement(poke){
         const statsValue = data.stats.map(stat => stat.base_stat);
         const alternate = statsName.map((e,i) => `${e} : ${statsValue[i]}`);
         const id = data.id;
-
+        Npokemon = id;
         // Pick 4 random moves from the array
         let randomMoves = [];
         for (let i = 0; i < 4; i++) {
@@ -579,7 +577,15 @@ function get_pokement(poke){
         document.querySelector('.stats-display').appendChild(divb)
 
 
-
+        document.querySelector('.a').innerHTML ='';
+                    let pik = document.createElement('div')
+                    pik.classList.add('droptarget')
+                    pik.innerHTML = `
+                    <div class="poke"  draggable="true" id="dragtarget" >
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${Npokemon}.png" draggable="false">
+                    </div>
+                    `
+                    document.querySelector('.a').appendChild(pik)
     });
 };
 
