@@ -51,8 +51,8 @@ tabs.forEach(element => {
                     `
                     document.querySelector('.stats-display').appendChild(dive)
 
-                    const audio = new Audio(`https://veekun.com/dex/media/pokemon/cries/${Npokemon}.ogg`);
-                    audio.play();
+                    // const audio = new Audio(`https://veekun.com/dex/media/pokemon/cries/${Npokemon}.ogg`);
+                    // audio.play();
 
                     document.querySelector('.a').innerHTML ='';
                     
@@ -522,6 +522,8 @@ function removehidden(){
     document.querySelector('.pokelone').innerHTML= '';
     document.querySelector('.stats-display').innerHTML ='';
 }
+
+
 
 
 

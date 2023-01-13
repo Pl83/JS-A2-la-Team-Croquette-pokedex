@@ -6,6 +6,10 @@
   font-family: 'Press Start 2P';
 }
 
+body{
+  overflow-y: hidden;
+}
+
 #forest {
   background-repeat: no-repeat;
   background-size: cover;
@@ -353,7 +357,7 @@ nav{
   }
 
   .slots{
-    height: 100vh;
+    height: 95vh;
     padding-top: 30px;
     display: flex;
     align-items: center;
@@ -373,6 +377,23 @@ nav{
       transition: 2.5s;
     }
 
+  }
+
+  .morere{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    font-size: larger;
+    font-weight: bolder;
+    
+    // border: 1px solid black;
+    // width: 30px;
+    // border-radius: 50px;
+    //margin-top: 20px;
+  }
+  .morere:hover{
+    cursor: pointer;
   }
 
 }
@@ -447,4 +468,31 @@ main{
 #guessGame > a{
   color: white;
   text-decoration: none;
+}
+footer{
+  padding-top: 500px;
+}
+.lower{
+  position: absolute;
+  border-radius: 800px;
+  gap: 10px;
+  bottom: -250px;
+  left: 25%;
+  width: 50%;
+  height: 400px;
+  background-color: hsla(0, 0%, 85%, 1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 250px;
+  button{
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background-color: hsla(0, 0%, 85%, 1);
+    border: 1px solid black;
+    font-size: 30px;
+    font-weight: bolder;
+    cursor: pointer;
+  }
 }
