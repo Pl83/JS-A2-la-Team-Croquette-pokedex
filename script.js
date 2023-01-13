@@ -54,9 +54,17 @@ tabs.forEach(element => {
                     audio.play();
 
                     document.querySelector('.a').innerHTML ='';
-                    let pik = document.createElement('img')
-                    pik.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${Npokemon}.png`
-                    pik.classList.add('posiimgdroping')
+                    // let pik = document.createElement('img')
+                    // pik.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${Npokemon}.png`
+                    // pik.classList.add('posiimgdroping')
+                    // document.querySelector('.a').appendChild(pik)
+                    let pik = document.createElement('div')
+                    pik.classList.add('droptarget')
+                    pik.innerHTML = `
+                    <div class="poke"  draggable="true" id="dragtarget" >
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${Npokemon}.png" draggable="false">
+                    </div>
+                    `
                     document.querySelector('.a').appendChild(pik)
 
 

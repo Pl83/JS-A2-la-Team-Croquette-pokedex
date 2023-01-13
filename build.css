@@ -354,8 +354,6 @@ main .droptarget {
   border-radius: 12px;
   width: 66px;
   height: 66px;
-  background-color: white;
-  border: hsl(0deg, 100%, 36%) solid 3px;
   transition: 2.5s;
 }
 main .droptarget .poke img {
