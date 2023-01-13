@@ -12,7 +12,7 @@ tabs.forEach(element => {
             let upArrow = document.querySelector('.up_arrow');
             let downArrow = document.querySelector('.down_arrow');
 
-            document.querySelector('.pokemon_area').classList.add('scrollinger');
+            
 
                 fetch(`https://pokeapi.co/api/v2/pokemon/${Npokemon}`)
                 .then(response => response.json())
@@ -224,6 +224,7 @@ tabs.forEach(element => {
 
             downArrow.addEventListener('click', function () {
                 console.log('Current poke' + Npokemon)
+                document.querySelector('.pokemon_area').classList.add('scrollinger');
                 document.querySelector('.pokemon_area').innerHTML ='';
                 document.querySelector('.stats-display').innerHTML ='';
                 fetch(`https://pokeapi.co/api/v2/pokemon-species/${Npokemon}/`)
@@ -290,6 +291,7 @@ tabs.forEach(element => {
 
         } else if (element.value === 'b'){
             document.querySelector('.pokemon_area').classList.remove('scrollinger');
+            document.querySelector('.stats-display').innerHTML ='';
             // let LeftArrow = document.querySelector('.left_arrow');
             // let RightArrow = document.querySelector('.right_arrow');
             
