@@ -500,22 +500,12 @@ function get_pokement(poke){
         }
 
 
-        document.querySelector('.pokename').innerHTML ='';
-        document.querySelector('.Ability').innerHTML ='';
-        document.querySelector('.movesset').innerHTML ='';
+        document.querySelector('.stats-display').innerHTML ='';
 
 
         let divb = document.createElement('div')
-        divb.innerHTML = `<h2>${name}</h2>`
-        document.querySelector('.pokename').appendChild(divb)
-
-        let divc = document.createElement('div')
-        divc.innerHTML = `<p>Abilities: ${abilities.join(", ")}</p>`
-        document.querySelector('.Ability').appendChild(divc)
-
-        let divd = document.createElement('div')
-        divd.innerHTML = `<p>Random moves: ${randomMoves.join(", ")}</p>`
-        document.querySelector('.movesset').appendChild(divd)
+        divb.innerHTML = `<h2>${name}</h2><br><p>Abilities: ${abilities.join(", ")}</p><br><p>Random moves: ${randomMoves.join(", ")}</p>`
+        document.querySelector('.stats-display').appendChild(divb)
 
 
 
@@ -524,9 +514,7 @@ function get_pokement(poke){
 function removehidden(){
     document.querySelector('.card').classList.remove('hiddenn')
     document.querySelector('.pokelone').innerHTML= '';
-    document.querySelector('.pokename').innerHTML ='';
-    document.querySelector('.Ability').innerHTML ='';
-    document.querySelector('.movesset').innerHTML ='';
+    document.querySelector('.stats-display').innerHTML ='';
 }
 
 
