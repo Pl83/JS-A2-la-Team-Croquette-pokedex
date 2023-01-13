@@ -71,9 +71,22 @@
   background-color: #ddd;
   border: 1px solid #000;
 }
-
-.stat-bar .progress {
-  background-color: blue;
+.stat-bar .progress1 {
+  height: 100%;
+}
+.stat-bar .progress2 {
+  height: 100%;
+}
+.stat-bar .progress3 {
+  height: 100%;
+}
+.stat-bar .progress4 {
+  height: 100%;
+}
+.stat-bar .progress5 {
+  height: 100%;
+}
+.stat-bar .progress6 {
   height: 100%;
 }
 
@@ -167,18 +180,17 @@
   grid-row-start: 4;
   grid-column-start: 4;
   display: flex;
+  align-items: center;
 }
 .input-pad input {
   width: 93%;
   height: 50px;
-  margin-top: 30px;
-  padding: 0 10px;
   background-color: #E6E6E6;
   font-family: "Press Start 2P";
   font-size: 20px;
 }
 .input-pad input button {
-  height: 50px;
+  height: 25px;
   width: 7%;
 }
 

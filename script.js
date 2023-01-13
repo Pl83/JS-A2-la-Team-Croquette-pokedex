@@ -23,6 +23,7 @@ tabs.forEach(element => {
                     const abilities = data.abilities.map(ability => ability.ability.name);
                     const moves = data.moves.map(move => move.move.name);
                     const types = data.types.map(type => type.type.name);
+                    const id = data.id;
                     console.log(types[0])
 
                     // Pick 4 random moves from the array
@@ -54,14 +55,11 @@ tabs.forEach(element => {
                     audio.play();
 
                     document.querySelector('.a').innerHTML ='';
-                    // let pik = document.createElement('img')
-                    // pik.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${Npokemon}.png`
-                    // pik.classList.add('posiimgdroping')
-                    // document.querySelector('.a').appendChild(pik)
+                    
                     let pik = document.createElement('div')
                     pik.classList.add('droptarget')
                     pik.innerHTML = `
-                    <div class="poke"  draggable="true" id="dragtarget" >
+                    <div class="poke"  draggable="true" id="${name}" >
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${Npokemon}.png" draggable="false">
                     </div>
                     `
@@ -92,6 +90,7 @@ tabs.forEach(element => {
                         randomMoves.push(moves[randomIndex]);
                     }
 
+                    document.querySelector('#pokemon-search').value ='';
                     document.querySelector('.pokemon_area').innerHTML ='';
                     document.querySelector('.stats-display').innerHTML ='';
 
@@ -113,9 +112,13 @@ tabs.forEach(element => {
                     audio.play();
 
                     document.querySelector('.a').innerHTML ='';
-                    let pik = document.createElement('img')
-                    pik.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${Npokemon}.png`
-                    pik.classList.add('posiimgdroping')
+                    let pik = document.createElement('div')
+                    pik.classList.add('droptarget')
+                    pik.innerHTML = `
+                    <div class="poke"  draggable="true" id="dragtarget" >
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${Npokemon}.png" draggable="false">
+                    </div>
+                    `
                     document.querySelector('.a').appendChild(pik)
 
                     document.body.style.backgroundImage = `url('img/${types[0]}.png')`;
@@ -144,7 +147,7 @@ tabs.forEach(element => {
                         let randomIndex = Math.floor(Math.random() * moves.length);
                         randomMoves.push(moves[randomIndex]);
                     }
-
+                    document.querySelector('#pokemon-search').value ='';
                     document.querySelector('.pokemon_area').innerHTML ='';
                     document.querySelector('.stats-display').innerHTML ='';
 
@@ -166,9 +169,13 @@ tabs.forEach(element => {
                     audio.play();
 
                     document.querySelector('.a').innerHTML ='';
-                    let pik = document.createElement('img')
-                    pik.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${Npokemon}.png`
-                    pik.classList.add('posiimgdroping')
+                    let pik = document.createElement('div')
+                    pik.classList.add('droptarget')
+                    pik.innerHTML = `
+                    <div class="poke"  draggable="true" id="dragtarget" >
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${Npokemon}.png" draggable="false">
+                    </div>
+                    `
                     document.querySelector('.a').appendChild(pik)
 
                     document.body.style.backgroundImage = `url('img/${types[0]}.png')`;
@@ -368,6 +375,16 @@ function searchPokemon() {
             document.body.style.backgroundImage = `url('img/${result.types[0].type.name}.png')`;
             const audio = new Audio(`https://veekun.com/dex/media/pokemon/cries/${result.id}.ogg`);
             audio.play();
+
+            document.querySelector('.a').innerHTML ='';
+            let pik = document.createElement('div')
+                    pik.classList.add('droptarget')
+                    pik.innerHTML = `
+                    <div class="poke"  draggable="true" id="dragtarget" >
+                    <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${result.id}.png" draggable="false">
+                    </div>
+                    `
+                    document.querySelector('.a').appendChild(pik)
 
             searchContainer.innerHTML = `
                 <h2>${result.name}</h2>
