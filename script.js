@@ -296,6 +296,7 @@ tabs.forEach(element => {
             let poke = []
 
             document.querySelector('.pokemon_area').innerHTML = '';
+            document.querySelector('.stats-display').innerHTML = '';
             var div = document.createElement('div')
             div.classList.add('card')
             for(let i =0 ; i<9 ; i++){
