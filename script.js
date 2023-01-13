@@ -24,7 +24,7 @@ tabs.forEach(element => {
                     const moves = data.moves.map(move => move.move.name);
                     const types = data.types.map(type => type.type.name);
                     const id = data.id;
-                    console.log(types[0])
+                    console.log(types[0]);
 
                     // Pick 4 random moves from the array
                     let randomMoves = [];
@@ -37,11 +37,11 @@ tabs.forEach(element => {
                     document.querySelector('.stats-display').innerHTML ='';
                     
 
-                    let diva = document.createElement('div')
-                    diva.innerHTML = `<h2>${name}</h2><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${Npokemon}.png">`
-                    document.querySelector('.pokemon_area').appendChild(diva)
+                    let diva = document.createElement('div');
+                    diva.innerHTML = `<h2>${name}</h2><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${Npokemon}.png">`;
+                    document.querySelector('.pokemon_area').appendChild(diva);
 
-                    let dive = document.createElement('div')
+                    let dive = document.createElement('div');
                     dive.innerHTML = `
                     <h2>${name}</h2>
                     <br>
@@ -49,21 +49,21 @@ tabs.forEach(element => {
                     <br>
                     <p>Possible set: ${randomMoves.join(", ")}
                     `
-                    document.querySelector('.stats-display').appendChild(dive)
+                    document.querySelector('.stats-display').appendChild(dive);
 
                     const audio = new Audio(`https://veekun.com/dex/media/pokemon/cries/${Npokemon}.ogg`);
                     audio.play();
 
                     document.querySelector('.a').innerHTML ='';
                     
-                    let pik = document.createElement('div')
-                    pik.classList.add('droptarget')
+                    let pik = document.createElement('div');
+                    pik.classList.add('droptarget');
                     pik.innerHTML = `
                     <div class="poke"  draggable="true" id="${name}" >
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${Npokemon}.png" draggable="false">
                     </div>
-                    `
-                    document.querySelector('.a').appendChild(pik)
+                    `;
+                    document.querySelector('.a').appendChild(pik);
 
 
                     document.body.style.backgroundImage = `url('img/${types[0]}.png')`;
@@ -73,7 +73,7 @@ tabs.forEach(element => {
             LeftArrow.addEventListener('click', function () {
                 if (Npokemon > 1) {
                     Npokemon = Npokemon - 1;
-                    console.log('Current poke' + Npokemon)
+                    console.log('Current poke' + Npokemon);
                     fetch(`https://pokeapi.co/api/v2/pokemon/${Npokemon}`)
                 .then(response => response.json())
                 .then(data => {
@@ -94,32 +94,32 @@ tabs.forEach(element => {
                     document.querySelector('.pokemon_area').innerHTML ='';
                     document.querySelector('.stats-display').innerHTML ='';
 
-                    let diva = document.createElement('div')
-                    diva.innerHTML = `<h2>${name}</h2><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${Npokemon}.png">`
-                    document.querySelector('.pokemon_area').appendChild(diva)
+                    let diva = document.createElement('div');
+                    diva.innerHTML = `<h2>${name}</h2><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${Npokemon}.png">`;
+                    document.querySelector('.pokemon_area').appendChild(diva);
 
-                    let dive = document.createElement('div')
+                    let dive = document.createElement('div');
                     dive.innerHTML = `
                     <h2>${name}</h2>
                     <br>
                     <p>Abilities: ${abilities.join(", ")}</p>
                     <br>
                     <p>Possible set: ${randomMoves.join(", ")}
-                    `
-                    document.querySelector('.stats-display').appendChild(dive)
+                    `;
+                    document.querySelector('.stats-display').appendChild(dive);
 
                     const audio = new Audio(`https://veekun.com/dex/media/pokemon/cries/${Npokemon}.ogg`);
                     audio.play();
 
                     document.querySelector('.a').innerHTML ='';
-                    let pik = document.createElement('div')
-                    pik.classList.add('droptarget')
+                    let pik = document.createElement('div');
+                    pik.classList.add('droptarget');
                     pik.innerHTML = `
                     <div class="poke"  draggable="true" id="${name}" >
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${Npokemon}.png" draggable="false">
                     </div>
-                    `
-                    document.querySelector('.a').appendChild(pik)
+                    `;
+                    document.querySelector('.a').appendChild(pik);
 
                     document.body.style.backgroundImage = `url('img/${types[0]}.png')`;
 
@@ -130,11 +130,11 @@ tabs.forEach(element => {
             RightArrow.addEventListener('click', function () {
                 if (Npokemon < 1008) {
                     Npokemon = Npokemon + 1;
-                    console.log('Current poke' + Npokemon)
+                    console.log('Current poke' + Npokemon);
                     fetch(`https://pokeapi.co/api/v2/pokemon/${Npokemon}`)
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data)
+                    console.log(data);
                     // récupère les nom, talents et capacités
                     const name = data.name;
                     const abilities = data.abilities.map(ability => ability.ability.name);
@@ -152,32 +152,32 @@ tabs.forEach(element => {
                     document.querySelector('.pokemon_area').innerHTML ='';
                     document.querySelector('.stats-display').innerHTML ='';
 
-                    let diva = document.createElement('div')
-                    diva.innerHTML = `<h2>${name}</h2><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${Npokemon}.png">`
-                    document.querySelector('.pokemon_area').appendChild(diva)
+                    let diva = document.createElement('div');
+                    diva.innerHTML = `<h2>${name}</h2><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${Npokemon}.png">`;
+                    document.querySelector('.pokemon_area').appendChild(diva);
 
-                    let dive = document.createElement('div')
+                    let dive = document.createElement('div');
                     dive.innerHTML = `
                     <h2>${name}</h2>
                     <br>
                     <p>Abilities: ${abilities.join(", ")}</p>
                     <br>
                     <p>Possible set: ${randomMoves.join(", ")}
-                    `
-                    document.querySelector('.stats-display').appendChild(dive)
+                    `;
+                    document.querySelector('.stats-display').appendChild(dive);
 
                     const audio = new Audio(`https://veekun.com/dex/media/pokemon/cries/${Npokemon}.ogg`);
                     audio.play();
 
                     document.querySelector('.a').innerHTML ='';
-                    let pik = document.createElement('div')
-                    pik.classList.add('droptarget')
+                    let pik = document.createElement('div');
+                    pik.classList.add('droptarget');
                     pik.innerHTML = `
                     <div class="poke"  draggable="true" id="${name}" >
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${Npokemon}.png" draggable="false">
                     </div>
-                    `
-                    document.querySelector('.a').appendChild(pik)
+                    `;
+                    document.querySelector('.a').appendChild(pik);
 
                     document.body.style.backgroundImage = `url('img/${types[0]}.png')`;
 
@@ -189,7 +189,7 @@ tabs.forEach(element => {
                 fetch(`https://pokeapi.co/api/v2/pokemon/${Npokemon}`)
                 .then(response => response.json())
                 .then(data => {
-                    console.log(data)
+                    console.log(data);
                     const name = data.name;
                     const types = data.types.map(type => type.type.name);
                     const height = data.height;
@@ -205,7 +205,7 @@ tabs.forEach(element => {
                     document.querySelector('.pokemon_area').innerHTML ='';
                     document.querySelector('.stats-display').innerHTML ='';
 
-                    let diva = document.createElement('div')
+                    let diva = document.createElement('div');
                     diva.innerHTML = `<h2>${name}</h2>
                     <div class="imgdivup" >
                         <div class="img-row">
@@ -217,10 +217,10 @@ tabs.forEach(element => {
                             <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/back/shiny/${id}.png">
                         </div>
                     </div>
-                    `
-                    document.querySelector('.pokemon_area').appendChild(diva)
+                    `;
+                    document.querySelector('.pokemon_area').appendChild(diva);
 
-                    let divf = document.createElement('div')
+                    let divf = document.createElement('div');
                     divf.innerHTML = `<h2>${name}</h2>
                     <p>Abilities: ${abilities.join(", ")}</p>
                     <br>
@@ -233,13 +233,13 @@ tabs.forEach(element => {
                     <br>
                     <p>All Moves: ${moves.join(", ")}</p>
                     `
-                    document.querySelector('.stats-display').appendChild(divf)
+                    document.querySelector('.stats-display').appendChild(divf);
                 });
             });
 
 
             downArrow.addEventListener('click', function () {
-                console.log('Current poke' + Npokemon)
+                console.log('Current poke' + Npokemon);
                 document.querySelector('.pokemon_area').classList.add('scrollinger');
                 document.querySelector('.pokemon_area').innerHTML ='';
                 document.querySelector('.stats-display').innerHTML ='';
@@ -281,11 +281,11 @@ tabs.forEach(element => {
                                             //console.log(data)
                                             
 
-                                            let diva = document.createElement('div')
-                                            diva.innerHTML = `<h2>${name}</h2><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png">`
-                                            document.querySelector('.pokemon_area').appendChild(diva)
+                                            let diva = document.createElement('div');
+                                            diva.innerHTML = `<h2>${name}</h2><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png">`;
+                                            document.querySelector('.pokemon_area').appendChild(diva);
 
-                                            let dive = document.createElement('div')
+                                            let dive = document.createElement('div');
                                             dive.innerHTML = `                                            
                                             <h2>${name}</h2>
                                             <br>
@@ -294,8 +294,8 @@ tabs.forEach(element => {
                                             <p>Possible set: ${randomMoves.join(", ")}
                                             <br>
                                             <br>
-                                            `
-                                            document.querySelector('.stats-display').appendChild(dive)
+                                            `;
+                                            document.querySelector('.stats-display').appendChild(dive);
                                         });
                                 });
                                 
@@ -311,12 +311,12 @@ tabs.forEach(element => {
             // let LeftArrow = document.querySelector('.left_arrow');
             // let RightArrow = document.querySelector('.right_arrow');
             
-            let poke = []
+            let poke = [];
 
             document.querySelector('.pokemon_area').innerHTML = '';
             document.querySelector('.stats-display').innerHTML = '';
             var div = document.createElement('div')
-            div.classList.add('card')
+            div.classList.add('card');
             for(let i =0 ; i<9 ; i++){
                 poke =Math.floor(Math.random()*  900 )
                 if(poke == 0){
@@ -324,8 +324,8 @@ tabs.forEach(element => {
                 }
                 else{
 
-                    console.log(poke)
-                    let allpokemon = fetch('https://pokeapi.co/api/v2/pokemon/'+ poke)
+                    console.log(poke);
+                    let allpokemon = fetch('https://pokeapi.co/api/v2/pokemon/'+ poke);
                     allpokemon.then(function (response) {
                         return response.json();
 
@@ -333,20 +333,20 @@ tabs.forEach(element => {
                         console.log(data);
 
 
-                        let div2 = document.createElement('div')
-                        div2.innerHTML += `<div onclick="get_pokement(${data.id})"><h2>${data.name}</h2><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${data.id}.png"></div>`
-                        document.querySelector('.pokemon_area').appendChild(div)
-                        document.querySelector('.card').appendChild(div2)
+                        let div2 = document.createElement('div');
+                        div2.innerHTML += `<div onclick="get_pokement(${data.id})"><h2>${data.name}</h2><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${data.id}.png"></div>`;
+                        document.querySelector('.pokemon_area').appendChild(div);
+                        document.querySelector('.card').appendChild(div2);
 
                     });
-                };
+                }
             }
         }
         else if (element.value === 'c'){
-            console.log('c')
+            console.log('c');
             
         } else if (element.value === 'd') {
-            console.log('d')
+            console.log('d');
 
         }
     })
@@ -375,14 +375,14 @@ function searchPokemon() {
             audio.play();
             Npokemon = result.id;
             document.querySelector('.a').innerHTML ='';
-            let pik = document.createElement('div')
-                    pik.classList.add('droptarget')
+            let pik = document.createElement('div');
+                    pik.classList.add('droptarget');
                     pik.innerHTML = `
                     <div class="poke"  draggable="true" id="${result.name}" >
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${result.id}.png" draggable="false">
                     </div>
-                    `
-                    document.querySelector('.a').appendChild(pik)
+                    `;
+                    document.querySelector('.a').appendChild(pik);
 
             searchContainer.innerHTML = `
                 <h2>${result.name}</h2>
@@ -397,75 +397,83 @@ function searchPokemon() {
                         <p>${result.types[1].type.name}</p>
                         
                 <h2>Moves</h2>
+                <!--<script>
+                        let progressValue1 = (result.stats[0].base_stat/250)*100% ;
+                        let progressClass = document.getElementsByClassName(".progress1");
+                        
+                        if(progressValue1 <= 69){
+                            progressClass.style.backgroundColor = "red" ; 
+                            progressClass.style.width = progressValue1;
+                        }if(progressValue1 >= 70 && progressValue1 <= 99){
+                            progressClass.style.backgroundColor = "yellow" ; 
+                            progressClass.style.width = progressValue1;
+                        }if(progressValue1 >= 100){
+                            progressClass.style.backgroundColor = "green" ; 
+                            progressClass.style.width = progressValue1;
+                        }
+                </script>-->
                 <h2>Statistics</h2>
                     <div id="Stat1">
                         <p>${result.stats[0].stat.name}: ${result.stats[0].base_stat}</p>
                          <div class="stat-bar">
-                        <div class="progress1" style="width:${(result.stats[0].base_stat/250)*100}%  background-color: blue"></div>
-
+                        <div class="progress1"  style="width:${(result.stats[0].base_stat/250)*100}%; background-color: gray;"></div>
                       </div>                   
                     </div>
                     <div id="Stat2">
                         <p>${result.stats[1].stat.name}: ${result.stats[1].base_stat}</p>
                          <div class="stat-bar">
-                        <div class="progress2" style="width:${(result.stats[1].base_stat/250)*100}%  background-color: blue">
-
-</div>
+                        <div class="progress2" style=" width:${(result.stats[1].base_stat/250)*100}% ; background-color: gray;">
+                        </div>
                       </div>                   
                     </div>
                     <div id="Stat3">
                         <p>${result.stats[2].stat.name}: ${result.stats[2].base_stat}</p>
                          <div class="stat-bar">
-                        <div class="progress3" style="width:${(result.stats[2].base_stat/250)*100}%  background-color: blue"></div>
-
+                        <div class="progress3" style="width:${(result.stats[2].base_stat/250)*100}%;  background-color: gray;"></div>
                       </div>                   
                     </div>
                     <div id="Stat4">
                         <p>${result.stats[3].stat.name}: ${result.stats[3].base_stat}</p>
                          <div class="stat-bar">
-                        <div class="progress4" style="width:${(result.stats[3].base_stat/250)*100}%; background-color: blue"></div>
-
+                        <div class="progress4" style="width:${(result.stats[3].base_stat/250)*100}%; background-color: gray;"></div>
                       </div>       
                       </div>                   
                     </div>
                      <div id="Stat5">
                         <p>${result.stats[4].stat.name}: ${result.stats[4].base_stat}</p>
                          <div class="stat-bar">
-                        <div class="progress5" style="width:${(result.stats[4].base_stat/250)*100}%  background-color: blue"></div>
-
+                        <div class="progress5" style="width:${(result.stats[4].base_stat/250)*100}% ; background-color: gray"></div>
                       </div>       
                       </div>                   
                     </div>
                     <div id="Stat6">
                         <p>${result.stats[5].stat.name}: ${result.stats[5].base_stat}</p>
                          <div class="stat-bar">
-                        <div class="progress6" style="width:${(result.stats[5].base_stat/250)*100}%  background-color: blue"></div>
-
+                        <div class="progress6" style="width:${(result.stats[5].base_stat/250)*100}%;  background-color: gray"></div>
                       </div>       
                       </div>                   
                     </div>
-                        `
-
+                        `;
         }
     }
     xhr.send();
 
 }
 function get_pokement(poke){
-    console.log(poke)
-    document.querySelector('.card').classList.add('hiddenn')
-    let allpokemon = fetch('https://pokeapi.co/api/v2/pokemon/'+ poke)
+    console.log(poke);
+    document.querySelector('.card').classList.add('hiddenn');
+    let allpokemon = fetch('https://pokeapi.co/api/v2/pokemon/'+ poke);
     allpokemon.then(function (response) {
         return response.json();
     }).then(function (data) {
         console.log(data);
 
-        let div = document.createElement('div')
-        div.classList.add('pokelone')
-        let div2 = document.createElement('div')
-        div2.innerHTML = `<div><button onclick="removehidden()">X</button><h2>${data.name}</h2><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${data.id}.png"></div>`
-        document.querySelector('.pokemon_area').appendChild(div)
-        document.querySelector('.pokelone').appendChild(div2)
+        let div = document.createElement('div');
+        div.classList.add('pokelone');
+        let div2 = document.createElement('div');
+        div2.innerHTML = `<div><button onclick="removehidden()">X</button><h2>${data.name}</h2><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${data.id}.png"></div>`;
+        document.querySelector('.pokemon_area').appendChild(div);
+        document.querySelector('.pokelone').appendChild(div2);
 
 
         // récupère les nom, talents et capacités
@@ -494,26 +502,26 @@ function get_pokement(poke){
         const audio = new Audio(`https://veekun.com/dex/media/pokemon/cries/${id}.ogg`);
         audio.play();
 
-        let divb = document.createElement('div')
+        let divb = document.createElement('div');
         divb.innerHTML = `<h2>${name}</h2><br> <p>Abilities: ${abilities.join(", ")}</p><br><p>Types: ${types.join(", ")}</p>
                     <br>
                     <p>Height: ${height} décimétre</p>
                     <p>Weight: ${weight} gramme</p>
                     <br>
                     <p>Stats: ${alternate.join(", ")}</p>
-                    <br><p>Random moves: ${randomMoves.join(", ")}</p>`
-        document.querySelector('.stats-display').appendChild(divb)
+                    <br><p>Random moves: ${randomMoves.join(", ")}</p>`;
+        document.querySelector('.stats-display').appendChild(divb);
 
 
         document.querySelector('.a').innerHTML ='';
-                    let pik = document.createElement('div')
-                    pik.classList.add('droptarget')
+                    let pik = document.createElement('div');
+                    pik.classList.add('droptarget');
                     pik.innerHTML = `
                     <div class="poke"  draggable="true" id="${name}" >
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${Npokemon}.png" draggable="false">
                     </div>
-                    `
-                    document.querySelector('.a').appendChild(pik)
+                    `;
+                    document.querySelector('.a').appendChild(pik);
     });
 };
 
@@ -522,6 +530,5 @@ function removehidden(){
     document.querySelector('.pokelone').innerHTML= '';
     document.querySelector('.stats-display').innerHTML ='';
 }
-
 
 
