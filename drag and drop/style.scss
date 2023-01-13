@@ -1,0 +1,121 @@
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+  font-family: 'Press Start 2P';
+}
+
+nav{
+position: fixed;
+  width: 0px;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  background-color: hsla(0, 0%, 85%, 1);
+  transition: 1.5s;
+  box-shadow: 11px 20px 17px 3px hsla(0, 0%, 0%, 0.25);
+
+}
+.nav_active{
+  width: 120px;
+  transition: 1.5s;
+  svg{
+    transition: 1.5s;
+    position: absolute;
+    right: -71px;
+  }
+
+  .slots{
+    height: 100vh;
+    padding-top: 30px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    transition: 1.5s;
+
+
+
+    .droptarget{
+      border-radius: 12px;
+      width: 66px;
+      height: 66px;
+      background-color: white;
+      border: hsla(0, 100%, 36%, 1) solid 3px;
+      transition: 2.5s;
+    }
+
+  }
+
+}
+.pokebo{
+  img{
+  width: 0px;
+  }
+
+}
+
+.svg-active{
+  transition: 1.5s;
+  position: absolute;
+  right: -71px;
+  rotate: 90deg;
+}
+
+
+
+main{
+
+  .droptarget{
+    border-radius: 12px;
+    width: 66px;
+    height: 66px;
+    background-color: white;
+    border: hsla(0, 100%, 36%, 1) solid 3px;
+    transition: 2.5s;
+
+    .poke{
+      img{
+        width: 100%;
+
+      }
+    }
+
+  }
+}
+
+.poke{
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  cursor: grab;
+
+  &:hover::after{
+    padding-top: 4px;
+    text-align: center;
+    width:145px;
+    //content: "solgaleo";
+    font-size: 14px;
+
+  }
+}
+
+  .img-active{
+    img{
+    width: 100% ;
+  }
+  }
+
+  .stock{
+
+
+    margin-top: 50%;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 17px;
+    display: flex;
+    justify-content: center;
+  }
+
