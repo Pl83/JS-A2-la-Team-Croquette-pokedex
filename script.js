@@ -50,6 +50,9 @@ tabs.forEach(element => {
                     `
                     document.querySelector('.stats-display').appendChild(dive)
 
+                    const audio = new Audio(`https://veekun.com/dex/media/pokemon/cries/${Npokemon}.ogg`);
+                    audio.play();
+
                     document.querySelector('.a').innerHTML ='';
                     let pik = document.createElement('img')
                     pik.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${Npokemon}.png`
@@ -97,6 +100,10 @@ tabs.forEach(element => {
                     <p>Possible set: ${randomMoves.join(", ")}
                     `
                     document.querySelector('.stats-display').appendChild(dive)
+
+                    const audio = new Audio(`https://veekun.com/dex/media/pokemon/cries/${Npokemon}.ogg`);
+                    audio.play();
+
                     document.querySelector('.a').innerHTML ='';
                     let pik = document.createElement('img')
                     pik.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${Npokemon}.png`
@@ -146,6 +153,10 @@ tabs.forEach(element => {
                     <p>Possible set: ${randomMoves.join(", ")}
                     `
                     document.querySelector('.stats-display').appendChild(dive)
+
+                    const audio = new Audio(`https://veekun.com/dex/media/pokemon/cries/${Npokemon}.ogg`);
+                    audio.play();
+
                     document.querySelector('.a').innerHTML ='';
                     let pik = document.createElement('img')
                     pik.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${Npokemon}.png`
