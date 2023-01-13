@@ -275,7 +275,7 @@ tabs.forEach(element => {
                     })
                     .catch(error => console.error(error));
             });
-
+            
 
         } else if (element.value === 'b'){
             document.querySelector('.pokemon_area').classList.remove('scrollinger');
