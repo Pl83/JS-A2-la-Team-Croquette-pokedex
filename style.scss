@@ -105,6 +105,7 @@
   grid-column-start: 1;
   grid-row-start: 2;
   grid-row-end: 5;
+  height: 60px;
   .a {
     border-radius: 50%;
     width: 60px;
@@ -112,6 +113,10 @@
     background-color: #404040;
     border: 5px solid #303030;
     cursor: pointer;
+  }
+  img{
+    width: 100%;
+    height: auto;
   }
 }
 
