@@ -399,4 +399,9 @@ main .droptarget .poke img {
   justify-content: center;
 }
 
+#guessGame > a {
+  color: white;
+  text-decoration: none;
+}
+
 /*# sourceMappingURL=build.css.map */
