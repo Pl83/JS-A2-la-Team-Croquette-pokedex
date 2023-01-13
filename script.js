@@ -12,7 +12,7 @@ tabs.forEach(element => {
             let upArrow = document.querySelector('.up_arrow');
             let downArrow = document.querySelector('.down_arrow');
 
-            document.querySelector('.pokemon_area').classList.add('scrollinger');
+            
 
                 fetch(`https://pokeapi.co/api/v2/pokemon/${Npokemon}`)
                 .then(response => response.json())
@@ -224,6 +224,7 @@ tabs.forEach(element => {
 
             downArrow.addEventListener('click', function () {
                 console.log('Current poke' + Npokemon)
+                document.querySelector('.pokemon_area').classList.add('scrollinger');
                 document.querySelector('.pokemon_area').innerHTML ='';
                 document.querySelector('.stats-display').innerHTML ='';
                 fetch(`https://pokeapi.co/api/v2/pokemon-species/${Npokemon}/`)
@@ -290,6 +291,7 @@ tabs.forEach(element => {
 
         } else if (element.value === 'b'){
             document.querySelector('.pokemon_area').classList.remove('scrollinger');
+            document.querySelector('.stats-display').innerHTML ='';
             // let LeftArrow = document.querySelector('.left_arrow');
             // let RightArrow = document.querySelector('.right_arrow');
             
@@ -322,67 +324,6 @@ tabs.forEach(element => {
                 }
             }
 
-            // LeftArrow.addEventListener('click', function () {
-            //     let poke = []
-            //     document.querySelector('.pokemon_area').innerHTML = '';
-            //     var div = document.createElement('div')
-            //     div.classList.add('card')
-            //     for(let i =0 ; i<9 ; i++){
-            //         poke =Math.floor(Math.random()*  900 )
-            //         if(poke == 0){
-            //             poke =Math.floor(Math.random()*  900 )
-            //         }
-            //         else{
-    
-            //             console.log(poke)
-            //             let allpokemon = fetch('https://pokeapi.co/api/v2/pokemon/'+ poke)
-            //             allpokemon.then(function (response) {
-            //                 return response.json();
-    
-            //             }).then(function (data) {
-            //                 console.log(data);
-    
-    
-            //                 let div2 = document.createElement('div')
-            //                 div2.innerHTML += `<div onclick="get_pokement(${data.id})"><h2>${data.name}</h2><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${data.id}.png"></div>`
-            //                 document.querySelector('.pokemon_area').appendChild(div)
-            //                 document.querySelector('.card').appendChild(div2)
-    
-            //             });
-            //         }
-            //     }
-            // });
-
-            // RightArrow.addEventListener('click', function () {
-            //     let poke = []
-            // document.querySelector('.pokemon_area').innerHTML = '';
-            // var div = document.createElement('div')
-            // div.classList.add('card')
-            // for(let i =0 ; i<9 ; i++){
-            //     poke =Math.floor(Math.random()*  900 )
-            //     if(poke == 0){
-            //         poke =Math.floor(Math.random()*  900 )
-            //     }
-            //     else{
-
-            //         console.log(poke)
-            //         let allpokemon = fetch('https://pokeapi.co/api/v2/pokemon/'+ poke)
-            //         allpokemon.then(function (response) {
-            //             return response.json();
-
-            //         }).then(function (data) {
-            //             console.log(data);
-
-
-            //             let div2 = document.createElement('div')
-            //             div2.innerHTML += `<div onclick="get_pokement(${data.id})"><h2>${data.name}</h2><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${data.id}.png"></div>`
-            //             document.querySelector('.pokemon_area').appendChild(div)
-            //             document.querySelector('.card').appendChild(div2)
-
-            //         });
-            //     }
-            // }
-            // });
 
             function get_pokement(poke){
                 console.log(poke)
@@ -538,7 +479,7 @@ tabs.forEach(element => {
                 fetch(`https://pokeapi.co/api/v2/pokemon/${search.value}`)
                 .then(response => response.json())
                 .then(data => {
-                    //console.log(data);
+                    console.log(data);
                     
                     //console.log(data)
                     // récupère les nom, talents et capacités
