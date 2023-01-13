@@ -1,0 +1,11 @@
+img{
+    height: 300px;
+}
+
+#sound:hover{
+    cursor: pointer;
+}
+
+#again{
+    display: none;
+}
