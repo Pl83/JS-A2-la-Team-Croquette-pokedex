@@ -5,6 +5,8 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <script src="script.js" defer></script>
+  <script src="konami.js" defer></script>
+  <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js" defer></script>
   <link rel="stylesheet" href="build.css">
   <title>Pokeapi</title>
 </head>
@@ -14,7 +16,6 @@
       <button></button>
     </div>
     <div class="camera-display pokemon_area" id="search-results">
-
 
     </div>
     <div class="divider"></div>
@@ -38,8 +39,23 @@
     </div>
 
     <div class="input-pad">
-    <input type="text" id="pokemon-search">
-    <button onclick="searchPokemon()" class="input-button">Search</button>
+    <!-- <input type="text" id="pokemon-search">
+    <button onclick="searchPokemon()" class="input-button">Search</button> -->
+    <input list="subject" id="pokemon-search">
+        <datalist id="subject">
+            <script>
+              fetch('https://pokeapi.co/api/v2/pokemon/?limit=1008')
+              .then(response => response.json())
+                .then(data => {
+                  //console.log(data)
+                  data.results.forEach(pokemon => {
+                    //console.log(pokemon.name)
+                    document.getElementById('subject').innerHTML += `<option value="${pokemon.name}">`
+                  })
+                })
+            </script>
+        </datalist>
+        <iconify-icon id="tyu" inline icon="ic:baseline-search" width="38"></iconify-icon>
   </div>
 
 
@@ -48,7 +64,7 @@
         <button class="level-button bta tabs god" value="a">Pokedex</button>
         <button class="level-button btb tabs" value="b">Random</button>
         <button class="level-button btc tabs" value="c"><a href="guess.html">C</a></button>
-        <button class="level-button btd tabs" value="d">D</button>
+        <button class="level-button btd tabs" value="d">Search</button>
       
         <button class="pokedex-mode black-button">Pokedex</button>
         <button class="game-mode black-button">Game</button>
