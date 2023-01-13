@@ -356,6 +356,10 @@ function searchPokemon() {
                         <div class="progress" style="width:${(result.stats[0].base_stat/250)*100}%"></div>
                       </div>`;
             document.querySelector('.stats-display').innerHTML = statBar;
+            console.log(result);
+            document.body.style.backgroundImage = `url('img/${result.types[0].type.name}.png')`;
+            const audio = new Audio(`https://veekun.com/dex/media/pokemon/cries/${result.id}.ogg`);
+            audio.play();
 
             searchContainer.innerHTML = `
                 <h2>${result.name}</h2>
@@ -435,6 +439,13 @@ function get_pokement(poke){
         const name = data.name;
         const abilities = data.abilities.map(ability => ability.ability.name);
         const moves = data.moves.map(move => move.move.name);
+        const types = data.types.map(type => type.type.name);
+        const height = data.height;
+        const weight = data.weight;
+        const statsName = data.stats.map(stat => stat.stat.name);
+        const statsValue = data.stats.map(stat => stat.base_stat);
+        const alternate = statsName.map((e,i) => `${e} : ${statsValue[i]}`);
+        const id = data.id;
 
         // Pick 4 random moves from the array
         let randomMoves = [];
@@ -444,28 +455,21 @@ function get_pokement(poke){
         }
 
 
-        // document.querySelector('.pokename').innerHTML ='';
-        // document.querySelector('.Ability').innerHTML ='';
-        // document.querySelector('.movesset').innerHTML ='';
         document.querySelector('.stats-display').innerHTML ='';
 
+        document.body.style.backgroundImage = `url('img/${types[0]}.png')`;
+        const audio = new Audio(`https://veekun.com/dex/media/pokemon/cries/${id}.ogg`);
+        audio.play();
 
         let divb = document.createElement('div')
-        divb.innerHTML = `<h2>${name}</h2>
-        <br>
-        <p>Abilities: ${abilities.join(", ")}</p>
-        <br>
-        <p>Random moves: ${randomMoves.join(", ")}</p>
-        `
+        divb.innerHTML = `<h2>${name}</h2><br> <p>Abilities: ${abilities.join(", ")}</p><br><p>Types: ${types.join(", ")}</p>
+                    <br>
+                    <p>Height: ${height} décimétre</p>
+                    <p>Weight: ${weight} gramme</p>
+                    <br>
+                    <p>Stats: ${alternate.join(", ")}</p>
+                    <br><p>Random moves: ${randomMoves.join(", ")}</p>`
         document.querySelector('.stats-display').appendChild(divb)
-
-        // let divc = document.createElement('div')
-        // divc.innerHTML = `<p>Abilities: ${abilities.join(", ")}</p>`
-        // document.querySelector('.Ability').appendChild(divc)
-
-        // let divd = document.createElement('div')
-        // divd.innerHTML = ``
-        // document.querySelector('.movesset').appendChild(divd)
 
 
 
