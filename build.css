@@ -73,21 +73,32 @@
   border: 1px solid #000;
 }
 .stat-bar .progress1 {
+  backgound-color: yellow;
   height: 100%;
 }
 .stat-bar .progress2 {
+  backgound-color: red;
+
   height: 100%;
 }
 .stat-bar .progress3 {
+  backgound-color: blue;
+
   height: 100%;
 }
 .stat-bar .progress4 {
+  backgound-color: brown;
+
   height: 100%;
 }
 .stat-bar .progress5 {
+  backgound-color: green;
+
   height: 100%;
 }
 .stat-bar .progress6 {
+  backgound-color: purple;
+
   height: 100%;
 }
 
