@@ -661,6 +661,18 @@ function get_pokement(poke){
         const statsName = data.stats.map(stat => stat.stat.name);
         const statsValue = data.stats.map(stat => stat.base_stat);
         const alternate = statsName.map((e,i) => `${e} : ${statsValue[i]}`);
+        const statName1 = data.stats[0].stat.name;
+        const statValue1 = data.stats[0].base_stat ;
+        const statName2 = data.stats[1].stat.name;
+        const statValue2 = data.stats[1].base_stat ;
+        const statName3 = data.stats[2].stat.name;
+        const statValue3 = data.stats[2].base_stat ;
+        const statName4 = data.stats[3].stat.name;
+        const statValue4 = data.stats[3].base_stat ;
+        const statName5 = data.stats[4].stat.name;
+        const statValue5 = data.stats[4].base_stat ;
+        const statName6 = data.stats[5].stat.name;
+        const statValue6 = data.stats[5].base_stat ;
         const id = data.id;
         Npokemon = id;
         // Pick 4 random moves from the array
@@ -684,8 +696,32 @@ function get_pokement(poke){
                     <p>Height: ${height} décimétre</p>
                     <p>Weight: ${weight} gramme</p>
                     <br>
-                    <p>Stats: ${alternate.join(", ")}</p>
-                    <br><p>Random moves: ${randomMoves.join(", ")}</p>`;
+                    <p>Random moves: ${randomMoves.join(", ")}</p>
+                    <h2>Statistics</h2>
+                    <p>${statName1}: ${statValue1}</p>
+                    <div class="stat-bar">
+                    <div class="progress1"  style="width:${(statValue1/250)*100}%; background-color: gray;"></div>
+                    </div>
+                    <p>${statName2}: ${statValue2}</p>
+                    <div class="stat-bar">
+                    <div class="progress2"  style="width:${(statValue2/250)*100}%; background-color: gray;"></div>
+                    </div>   
+                    <p>${statName3}: ${statValue3}</p>
+                    <div class="stat-bar">
+                    <div class="progress3"  style="width:${(statValue3/250)*100}%; background-color: gray;"></div>
+                    </div>   
+                    <p>${statName4}: ${statValue4}</p>
+                    <div class="stat-bar">
+                    <div class="progress4"  style="width:${(statValue4/250)*100}%; background-color: gray;"></div>
+                    </div>   
+                    <p>${statName5}: ${statValue5}</p>
+                    <div class="stat-bar">
+                    <div class="progress5"  style="width:${(statValue5/250)*100}%; background-color: gray;"></div>
+                    </div>   
+                    <p>${statName6}: ${statValue6}</p>
+                    <div class="stat-bar">
+                    <div class="progress6"  style="width:${(statValue6/250)*100}%; background-color: gray;"></div>
+                    </div> `;
         document.querySelector('.stats-display').appendChild(divb);
 
 
