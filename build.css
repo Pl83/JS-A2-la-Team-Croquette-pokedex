@@ -6,9 +6,8 @@
 }
 
 #forest {
-  width: 100%;
-  height: 100%;
-  background: url("https://wallpapertag.com/wallpaper/middle/6/2/2/572651-pokemon-forest-background-1920x1200-samsung.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
 #pokedex {
@@ -253,7 +252,7 @@
   justify-content: space-between;
 }
 
-.pokemon_area {
+.scrollinger {
   overflow: scroll;
   overflow-x: hidden;
 }
