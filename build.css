@@ -287,4 +287,11 @@
   text-align: center;
 }
 
+.king {
+  position: fixed;
+  top: 0;
+  width: 100vh;
+  height: auto;
+}
+
 /*# sourceMappingURL=build.css.map */
