@@ -24,7 +24,18 @@ tabs.forEach(element => {
                     const moves = data.moves.map(move => move.move.name);
                     const types = data.types.map(type => type.type.name);
                     const id = data.id;
-                    console.log(types[0]);
+                    const statName1 = data.stats[0].stat.name;
+                    const statValue1 = data.stats[0].base_stat ;
+                    const statName2 = data.stats[1].stat.name;
+                    const statValue2 = data.stats[1].base_stat ;
+                    const statName3 = data.stats[2].stat.name;
+                    const statValue3 = data.stats[2].base_stat ;
+                    const statName4 = data.stats[3].stat.name;
+                    const statValue4 = data.stats[3].base_stat ;
+                    const statName5 = data.stats[4].stat.name;
+                    const statValue5 = data.stats[4].base_stat ;
+                    const statName6 = data.stats[5].stat.name;
+                    const statValue6 = data.stats[5].base_stat ;
 
                     // Pick 4 random moves from the array
                     let randomMoves = [];
@@ -32,23 +43,45 @@ tabs.forEach(element => {
                         let randomIndex = Math.floor(Math.random() * moves.length);
                         randomMoves.push(moves[randomIndex]);
                     }
-                    //console.log(data)
+                    document.querySelector('.pokemon_area').classList.remove('scrollinger');
+                    document.querySelector('#pokemon-search').value ='';
                     document.querySelector('.pokemon_area').innerHTML ='';
                     document.querySelector('.stats-display').innerHTML ='';
-                    
 
                     let diva = document.createElement('div');
                     diva.innerHTML = `<h2>${name}</h2><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${Npokemon}.png">`;
                     document.querySelector('.pokemon_area').appendChild(diva);
-
                     let dive = document.createElement('div');
                     dive.innerHTML = `
                     <h2>${name}</h2>
-                    <br>
-                    <p>Abilities: ${abilities.join(", ")}</p>
-                    <br>
                     <p>Possible set: ${randomMoves.join(", ")}
-                    `
+                    <br>
+                    <h2>Statistics</h2>
+                    <p>${statName1}: ${statValue1}</p>
+                    <div class="stat-bar">
+                    <div class="progress1"  style="width:${(statValue1/250)*100}%; background-color: gray;"></div>
+                    </div>
+                    <p>${statName2}: ${statValue2}</p>
+                    <div class="stat-bar">
+                    <div class="progress2"  style="width:${(statValue2/250)*100}%; background-color: gray;"></div>
+                    </div>   
+                    <p>${statName3}: ${statValue3}</p>
+                    <div class="stat-bar">
+                    <div class="progress3"  style="width:${(statValue3/250)*100}%; background-color: gray;"></div>
+                    </div>   
+                    <p>${statName4}: ${statValue4}</p>
+                    <div class="stat-bar">
+                    <div class="progress4"  style="width:${(statValue4/250)*100}%; background-color: gray;"></div>
+                    </div>   
+                    <p>${statName5}: ${statValue5}</p>
+                    <div class="stat-bar">
+                    <div class="progress5"  style="width:${(statValue5/250)*100}%; background-color: gray;"></div>
+                    </div>   
+                      <p>${statName6}: ${statValue6}</p>
+                    <div class="stat-bar">
+                    <div class="progress6"  style="width:${(statValue6/250)*100}%; background-color: gray;"></div>
+                    </div>   
+                    `;
                     document.querySelector('.stats-display').appendChild(dive);
 
                     const audio = new Audio(`https://veekun.com/dex/media/pokemon/cries/${Npokemon}.ogg`);
@@ -82,6 +115,18 @@ tabs.forEach(element => {
                     const abilities = data.abilities.map(ability => ability.ability.name);
                     const moves = data.moves.map(move => move.move.name);
                     const types = data.types.map(type => type.type.name);
+                    const statName1 = data.stats[0].stat.name;
+                    const statValue1 = data.stats[0].base_stat ;
+                    const statName2 = data.stats[1].stat.name;
+                    const statValue2 = data.stats[1].base_stat ;
+                    const statName3 = data.stats[2].stat.name;
+                    const statValue3 = data.stats[2].base_stat ;
+                    const statName4 = data.stats[3].stat.name;
+                    const statValue4 = data.stats[3].base_stat ;
+                    const statName5 = data.stats[4].stat.name;
+                    const statValue5 = data.stats[4].base_stat ;
+                    const statName6 = data.stats[5].stat.name;
+                    const statValue6 = data.stats[5].base_stat ;
 
                     // Pick 4 random moves from the array
                     let randomMoves = [];
@@ -97,15 +142,36 @@ tabs.forEach(element => {
                     let diva = document.createElement('div');
                     diva.innerHTML = `<h2>${name}</h2><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${Npokemon}.png">`;
                     document.querySelector('.pokemon_area').appendChild(diva);
-
                     let dive = document.createElement('div');
                     dive.innerHTML = `
                     <h2>${name}</h2>
-                    <br>
-                    <p>Abilities: ${abilities.join(", ")}</p>
-                    <br>
                     <p>Possible set: ${randomMoves.join(", ")}
-                    `;
+                    <br>
+                    <h2>Statistics</h2>
+                    <p>${statName1}: ${statValue1}</p>
+                    <div class="stat-bar">
+                    <div class="progress1"  style="width:${(statValue1/250)*100}%; background-color: gray;"></div>
+                    </div>
+                    <p>${statName2}: ${statValue2}</p>
+                    <div class="stat-bar">
+                    <div class="progress2"  style="width:${(statValue2/250)*100}%; background-color: gray;"></div>
+                    </div>   
+                    <p>${statName3}: ${statValue3}</p>
+                    <div class="stat-bar">
+                    <div class="progress3"  style="width:${(statValue3/250)*100}%; background-color: gray;"></div>
+                    </div>   
+                    <p>${statName4}: ${statValue4}</p>
+                    <div class="stat-bar">
+                    <div class="progress4"  style="width:${(statValue4/250)*100}%; background-color: gray;"></div>
+                    </div>   
+                    <p>${statName5}: ${statValue5}</p>
+                    <div class="stat-bar">
+                    <div class="progress5"  style="width:${(statValue5/250)*100}%; background-color: gray;"></div>
+                    </div>   
+                      <p>${statName6}: ${statValue6}</p>
+                    <div class="stat-bar">
+                    <div class="progress6"  style="width:${(statValue6/250)*100}%; background-color: gray;"></div>
+                    </div>   `;
                     document.querySelector('.stats-display').appendChild(dive);
 
                     const audio = new Audio(`https://veekun.com/dex/media/pokemon/cries/${Npokemon}.ogg`);
@@ -140,6 +206,18 @@ tabs.forEach(element => {
                     const abilities = data.abilities.map(ability => ability.ability.name);
                     const moves = data.moves.map(move => move.move.name);
                     const types = data.types.map(type => type.type.name);
+                    const statName1 = data.stats[0].stat.name;
+                    const statValue1 = data.stats[0].base_stat ;
+                    const statName2 = data.stats[1].stat.name;
+                    const statValue2 = data.stats[1].base_stat ;
+                    const statName3 = data.stats[2].stat.name;
+                    const statValue3 = data.stats[2].base_stat ;
+                    const statName4 = data.stats[3].stat.name;
+                    const statValue4 = data.stats[3].base_stat ;
+                    const statName5 = data.stats[4].stat.name;
+                    const statValue5 = data.stats[4].base_stat ;
+                    const statName6 = data.stats[5].stat.name;
+                    const statValue6 = data.stats[5].base_stat ;
 
                     // Pick 4 random moves from the array
                     let randomMoves = [];
@@ -155,15 +233,38 @@ tabs.forEach(element => {
                     let diva = document.createElement('div');
                     diva.innerHTML = `<h2>${name}</h2><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${Npokemon}.png">`;
                     document.querySelector('.pokemon_area').appendChild(diva);
-
                     let dive = document.createElement('div');
                     dive.innerHTML = `
                     <h2>${name}</h2>
-                    <br>
-                    <p>Abilities: ${abilities.join(", ")}</p>
-                    <br>
                     <p>Possible set: ${randomMoves.join(", ")}
+                    <br>
+                    <h2>Statistics</h2>
+                    <p>${statName1}: ${statValue1}</p>
+                    <div class="stat-bar">
+                    <div class="progress1"  style="width:${(statValue1/250)*100}%; background-color: gray;"></div>
+                    </div>
+                    <p>${statName2}: ${statValue2}</p>
+                    <div class="stat-bar">
+                    <div class="progress2"  style="width:${(statValue2/250)*100}%; background-color: gray;"></div>
+                    </div>   
+                    <p>${statName3}: ${statValue3}</p>
+                    <div class="stat-bar">
+                    <div class="progress3"  style="width:${(statValue3/250)*100}%; background-color: gray;"></div>
+                    </div>   
+                    <p>${statName4}: ${statValue4}</p>
+                    <div class="stat-bar">
+                    <div class="progress4"  style="width:${(statValue4/250)*100}%; background-color: gray;"></div>
+                    </div>   
+                    <p>${statName5}: ${statValue5}</p>
+                    <div class="stat-bar">
+                    <div class="progress5"  style="width:${(statValue5/250)*100}%; background-color: gray;"></div>
+                    </div>   
+                      <p>${statName6}: ${statValue6}</p>
+                    <div class="stat-bar">
+                    <div class="progress6"  style="width:${(statValue6/250)*100}%; background-color: gray;"></div>
+                    </div>      
                     `;
+
                     document.querySelector('.stats-display').appendChild(dive);
 
                     const audio = new Audio(`https://veekun.com/dex/media/pokemon/cries/${Npokemon}.ogg`);
@@ -226,10 +327,8 @@ tabs.forEach(element => {
                     <br>
                     <p>Types: ${types.join(", ")}</p>
                     <br>
-                    <p>Height: ${height} décimétre</p>
-                    <p>Weight: ${weight} gramme</p>
-                    <br>
-                    <p>Stats: ${alternate.join(", ")}</p>
+                    <p>Height: ${height} decimeter</p>
+                    <p>Weight: ${weight} grammes</p>
                     <br>
                     <p>All Moves: ${moves.join(", ")}</p>
                     `
@@ -387,16 +486,19 @@ function searchPokemon() {
             searchContainer.innerHTML = `
                 <h2>${result.name}</h2>
                 <img src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${result.id}.png'>`;
+
+            // Pick 4 random moves from the array
+//            let randomMovesSET = [];
+//             for (let i = 0; i < 4; i++) {
+//                 let randomIndex = Math.floor(Math.random() * moves.length);
+//                 randomMovesSET.push(result.moves[randomIndex]);
+//             }
+
             statsDisplay.innerHTML = `
-                <h2>Abilities</h2>
-                        <p>${result.abilities[0].ability.name}</p>
-                        <p>${result.abilities[1].ability.name}</p>
-                        
-                <h2>Types</h2>
-                        <p>${result.types[0].type.name}</p>
-                        <p>${result.types[1].type.name}</p>
-                        
-                <h2>Moves</h2>
+                <h2>${result.name}</h2>
+
+                    <p>Possible set: ${result.moves[Math.floor(Math.random() * result.moves.length)].move.name}, ${result.moves[Math.floor(Math.random() * result.moves.length)].move.name}, ${result.moves[Math.floor(Math.random() * result.moves.length)].move.name}, ${result.moves[Math.floor(Math.random() * result.moves.length)].move.name}</p>
+
                 <!--<script>
                         let progressValue1 = (result.stats[0].base_stat/250)*100% ;
                         let progressClass = document.getElementsByClassName(".progress1");
