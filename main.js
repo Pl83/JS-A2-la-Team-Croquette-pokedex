@@ -42,26 +42,30 @@ fetch('https://pokeapi.co/api/v2/pokemon?limit=20')
 // speechSynthesis.speak(utterance);
 // console.log(speechSynthesis.getVoices())
 
+guessGame()
 
-let rand =Math.floor(Math.random() * 100) + 1;
+function guessGame(){
+    let rand =Math.floor(Math.random() * 500) + 1;
 fetch('https://pokeapi.co/api/v2/pokemon/'+rand)
     .then(response => response.json())
     .then(data =>{
         //console.log(data)
+        rep =document.querySelector("#answer")
+        rep.innerHTML=""
+        again = document.querySelector("#again")
+        again.style.display="none"
 
         const inHtml = document.querySelector("#card")
         const box = document.createElement("section")
-        const name = document.createElement("h3")
         const type = document.createElement("p")
         const img = document.createElement("img")
         //console.log(data["id"])
+        inHtml.innerHTML=""
 
         box.setAttribute("class", data["types"][0]["type"]["name"]);
 
-        name.setAttribute("id", data["id"]);
-        name.innerHTML=data["name"]
         img.setAttribute("src", "https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/"+data["id"]+".png");
-        box.appendChild(name)
+        console.log(data["name"])
         box.appendChild(img)
         inHtml.appendChild(box)
 
@@ -80,25 +84,40 @@ fetch('https://pokeapi.co/api/v2/pokemon/'+rand)
                 const img = document.querySelector("img")
                 img.setAttribute("src", "https://static.posters.cz/image/1300/affiches-et-posters/wwe-john-cena-09-i8508.jpg");
             }else{
-                new Audio('sound_effects/its.mp3').play()
-                let utterance = new SpeechSynthesisUtterance(data["name"]);
-                utterance.lang = 'en-US';
-                speechSynthesis.speak(utterance);
+                let oui = new Audio('sound_effects/its.mp3')
+                oui.play()
+
+                oui.addEventListener('ended', (event) => {
+                    let utterance = new SpeechSynthesisUtterance(data["name"]);
+                    utterance.lang = 'en-US';
+                    speechSynthesis.speak(utterance);
+                })
+                
+
                 rep.innerHTML=""
                 if(guess.value===data["name"]){
                     console.log("OUI")
-                    inside.innerHTML="that's the right answer !"
+                    inside.innerHTML="that's the right answer ! <br>It's "+data["name"]
                     rep.appendChild(inside)
                 }else{
                     console.log("NON")
-                    inside.innerHTML="that's the wrong answer !"
+                    inside.innerHTML="that's the wrong answer ! <br>It's "+data["name"]
                     rep.appendChild(inside)
                 }
+                again = document.querySelector("#again")
+                again.style.display="block"
             }
         })
     });
+}
+
 
 btn2 = document.querySelector("#sound")
 btn2.addEventListener("click", ()=> {
     new Audio('sound_effects/whos-that-pokemon.mp3').play()
+})
+
+again = document.querySelector("#again")
+again.addEventListener("click", ()=> {
+    guessGame()
 })
