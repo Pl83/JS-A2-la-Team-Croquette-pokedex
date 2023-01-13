@@ -3,6 +3,7 @@
   margin: 0;
   box-sizing: border-box;
   font-size: 16px;
+  font-family: "Press Start 2P";
 }
 
 #forest {
@@ -11,7 +12,7 @@
 }
 
 #pokedex {
-  width: 800px;
+  width: 100vh;
   height: 600px;
   margin: auto;
   background-color: #dd0b2d;
@@ -106,6 +107,7 @@
   grid-column-start: 1;
   grid-row-start: 2;
   grid-row-end: 5;
+  height: 60px;
 }
 #actions .a {
   border-radius: 50%;
@@ -114,6 +116,10 @@
   background-color: #404040;
   border: 5px solid #303030;
   cursor: pointer;
+}
+#actions img {
+  width: 100%;
+  height: auto;
 }
 
 #cross {
@@ -285,6 +291,101 @@
 
 .pokemon_area h2 {
   text-align: center;
+}
+
+.king {
+  position: fixed;
+  top: 0;
+  width: 100vh;
+  height: auto;
+}
+
+nav {
+  position: fixed;
+  width: 0px;
+  left: 0;
+  top: 0;
+  height: 100vh;
+  background-color: hsl(0deg, 0%, 85%);
+  transition: 1.5s;
+  box-shadow: 11px 20px 17px 3px hsla(0deg, 0%, 0%, 0.25);
+}
+
+.nav_active {
+  width: 120px;
+  transition: 1.5s;
+}
+.nav_active svg {
+  transition: 1.5s;
+  position: absolute;
+  right: -71px;
+}
+.nav_active .slots {
+  height: 100vh;
+  padding-top: 30px;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  transition: 1.5s;
+}
+.nav_active .slots .droptarget {
+  border-radius: 12px;
+  width: 66px;
+  height: 66px;
+  background-color: white;
+  border: hsl(0deg, 100%, 36%) solid 3px;
+  transition: 2.5s;
+}
+
+.pokebo img {
+  width: 0px;
+}
+
+.svg-active {
+  transition: 1.5s;
+  position: absolute;
+  right: -71px;
+  rotate: 90deg;
+}
+
+main .droptarget {
+  border-radius: 12px;
+  width: 66px;
+  height: 66px;
+  background-color: white;
+  border: hsl(0deg, 100%, 36%) solid 3px;
+  transition: 2.5s;
+}
+main .droptarget .poke img {
+  width: 100%;
+}
+
+.poke {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  cursor: grab;
+}
+.poke:hover::after {
+  padding-top: 4px;
+  text-align: center;
+  width: 145px;
+  font-size: 14px;
+}
+
+.img-active img {
+  width: 100%;
+}
+
+.stock {
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 17px;
+  display: flex;
+  justify-content: center;
 }
 
 /*# sourceMappingURL=build.css.map */

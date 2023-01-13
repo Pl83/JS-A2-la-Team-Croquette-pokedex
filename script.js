@@ -12,7 +12,7 @@ tabs.forEach(element => {
             let upArrow = document.querySelector('.up_arrow');
             let downArrow = document.querySelector('.down_arrow');
 
-            document.querySelector('.pokemon_area').classList.add('scrollinger');
+            
 
                 fetch(`https://pokeapi.co/api/v2/pokemon/${Npokemon}`)
                 .then(response => response.json())
@@ -224,6 +224,7 @@ tabs.forEach(element => {
 
             downArrow.addEventListener('click', function () {
                 console.log('Current poke' + Npokemon)
+                document.querySelector('.pokemon_area').classList.add('scrollinger');
                 document.querySelector('.pokemon_area').innerHTML ='';
                 document.querySelector('.stats-display').innerHTML ='';
                 fetch(`https://pokeapi.co/api/v2/pokemon-species/${Npokemon}/`)
@@ -290,6 +291,7 @@ tabs.forEach(element => {
 
         } else if (element.value === 'b'){
             document.querySelector('.pokemon_area').classList.remove('scrollinger');
+            document.querySelector('.stats-display').innerHTML ='';
             // let LeftArrow = document.querySelector('.left_arrow');
             // let RightArrow = document.querySelector('.right_arrow');
             
@@ -333,144 +335,89 @@ tabs.forEach(element => {
         } else if (element.value === 'd') {
             console.log('d')
 
-            // function searchPokemon() {
-            //     let searchValue = document.getElementById('pokemon-search').value;
-            //     let searchContainer = document.querySelector('.pokemon_area');
-            //     let statsDisplay = document.querySelector('.stats-display');
-
-            //     let xhr = new XMLHttpRequest();
-            //     xhr.open('GET', 'https://pokeapi.co/api/v2/pokemon/' + searchValue, true);
-            //     xhr.onreadystatechange = function() {
-            //         if (xhr.readyState === 4 && xhr.status === 200) {
-            //             let result = JSON.parse(xhr.responseText);
-            //             searchContainer.innerHTML = "";
-            //             statsDisplay.innerHTML = "";
-
-            //             let statBar = `<div class="stat-bar">
-            //                         <div class="progress" style="width:${(result.stats[0].base_stat/250)*100}%"></div>
-            //                     </div>`;
-            //             document.querySelector('.stats-display').innerHTML = statBar;
-
-            //             searchContainer.innerHTML = `
-            //                 <h2>${result.name}</h2>
-            //                 <img src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${result.id}.png'>`;
-            //             statsDisplay.innerHTML = `
-            //                 <h2>Abilities</h2>
-            //                         <p>${result.abilities[0].ability.name}</p>
-            //                         <p>${result.abilities[1].ability.name}</p>
-            //                 <h2>Types</h2>
-            //                         <p>${result.types[0].type.name}</p>
-            //                         <p>${result.types[1].type.name}</p>
-            //                 <h2>Statistics</h2>
-            //                     <div id="Stat1">
-            //                         <p>${result.stats[0].stat.name}</p>
-            //                         <p>${result.stats[0].base_stat}</p>
-            //                         <div class="stat-bar">
-            //                         <div class="progress" style="width:${(result.stats[0].base_stat/250)*100}%"></div>
-            //                     </div>                   
-            //                     </div>
-            //                     <div id="Stat2">
-            //                         <p>${result.stats[1].stat.name}</p>
-            //                         <p>${result.stats[1].base_stat}</p>
-            //                         <div class="stat-bar">
-            //                         <div class="progress" style="width:${(result.stats[1].base_stat/250)*100}%"></div>
-            //                     </div>                   
-            //                     </div>
-            //                     <div id="Stat3">
-            //                         <p>${result.stats[2].stat.name}</p>
-            //                         <p>${result.stats[2].base_stat}</p>
-            //                         <div class="stat-bar">
-            //                         <div class="progress" style="width:${(result.stats[2].base_stat/250)*100}%"></div>
-            //                     </div>                   
-            //                     </div>
-            //                     <div id="Stat4">
-            //                         <p>${result.stats[3].stat.name}</p>
-            //                         <p>${result.stats[3].base_stat}</p>
-            //                         <div class="stat-bar">
-            //                         <div class="progress" style="width:${(result.stats[3].base_stat/250)*100}%"></div>
-            //                     </div>                   
-            //                     </div>
-            //                     <div id="Stat5">
-            //                         <p>${result.stats[4].stat.name}</p>
-            //                         <p>${result.stats[4].base_stat}</p>
-            //                         <div class="stat-bar">
-            //                         <div class="progress" style="width:${(result.stats[4].base_stat/250)*100}%"></div>
-            //                     </div>                   
-            //                     </div>
-            //                     <div id="Stat6">
-            //                         <p>${result.stats[5].stat.name}</p>
-            //                         <p>${result.stats[5].base_stat}</p>
-            //                         <div class="stat-bar">
-            //                         <div class="progress" style="width:${(result.stats[5].base_stat/250)*100}%"></div>
-            //                     </div>                   
-            //                     </div>
-            //                         `
-
-            //         }
-            //         }
-            //     xhr.send();
-
-            // }
-
-            document.querySelector('.pokemon_area').innerHTML ='';
-            document.querySelector('.stats-display').innerHTML ='';
-
-            let search = document.querySelector('#pokemon-search');
-            let tyu = document.querySelector('#tyu');
-            tyu.addEventListener('click', function(){
-                fetch(`https://pokeapi.co/api/v2/pokemon/${search.value}`)
-                .then(response => response.json())
-                .then(data => {
-                    //console.log(data);
-                    
-                    //console.log(data)
-                    // récupère les nom, talents et capacités
-                    const name = data.name;
-                    const abilities = data.abilities.map(ability => ability.ability.name);
-                    const moves = data.moves.map(move => move.move.name);
-                    const types = data.types.map(type => type.type.name);
-                    const id = data.id;
-                    //console.log(types[0])
-                    Npokemon = id;
-                    // Pick 4 random moves from the array
-                    let randomMoves = [];
-                    for (let i = 0; i < 4; i++) {
-                        let randomIndex = Math.floor(Math.random() * moves.length);
-                        randomMoves.push(moves[randomIndex]);
-                    }
-                    //console.log(data)
-                    document.querySelector('.pokemon_area').innerHTML ='';
-                    document.querySelector('.stats-display').innerHTML ='';
-                    
-
-                    let diva = document.createElement('div')
-                    diva.innerHTML = `<h2>${name}</h2><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${Npokemon}.png">`
-                    document.querySelector('.pokemon_area').appendChild(diva)
-
-                    let dive = document.createElement('div')
-                    dive.innerHTML = `
-                    <h2>${name}</h2>
-                    <br>
-                    <p>Abilities: ${abilities.join(", ")}</p>
-                    <br>
-                    <p>Possible set: ${randomMoves.join(", ")}
-                    `
-                    document.querySelector('.stats-display').appendChild(dive)
-
-                    document.querySelector('.a').innerHTML ='';
-                    let pik = document.createElement('img')
-                    pik.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${Npokemon}.png`
-                    pik.classList.add('posiimgdroping')
-                    document.querySelector('.a').appendChild(pik)
-
-
-                    document.body.style.backgroundImage = `url('img/${types[0]}.png')`;
-                })
-            })
-
         }
     })
 });
+
+function searchPokemon() {
+    let searchValue = document.getElementById('pokemon-search').value;
+    let searchContainer = document.querySelector('.pokemon_area');
+    let statsDisplay = document.querySelector('.stats-display');
+
+    let xhr = new XMLHttpRequest();
+    xhr.open('GET', 'https://pokeapi.co/api/v2/pokemon/' + searchValue, true);
+    xhr.onreadystatechange = function() {
+        if (xhr.readyState === 4 && xhr.status === 200) {
+            let result = JSON.parse(xhr.responseText);
+            searchContainer.innerHTML = "";
+            statsDisplay.innerHTML = "";
+
+            let statBar = `<div class="stat-bar">
+                        <div class="progress" style="width:${(result.stats[0].base_stat/250)*100}%"></div>
+                      </div>`;
+            document.querySelector('.stats-display').innerHTML = statBar;
+            console.log(result);
+            document.body.style.backgroundImage = `url('img/${result.types[0].type.name}.png')`;
+            const audio = new Audio(`https://veekun.com/dex/media/pokemon/cries/${result.id}.ogg`);
+            audio.play();
+
+            searchContainer.innerHTML = `
+                <h2>${result.name}</h2>
+                <img src='https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${result.id}.png'>`;
+            statsDisplay.innerHTML = `
+                <h2>Abilities</h2>
+                        <p>${result.abilities[0].ability.name}</p>
+                        <p>${result.abilities[1].ability.name}</p>
+                        
+                <h2>Types</h2>
+                        <p>${result.types[0].type.name}</p>
+                        <p>${result.types[1].type.name}</p>
+                        
+                <h2>Moves</h2>
+                <h2>Statistics</h2>
+                    <div id="Stat1">
+                        <p>${result.stats[0].stat.name}: ${result.stats[0].base_stat}</p>
+                         <div class="stat-bar">
+                        <div class="progress" style="width:${(result.stats[0].base_stat/250)*100}%"></div>
+                      </div>                   
+                    </div>
+                    <div id="Stat2">
+                        <p>${result.stats[1].stat.name}: ${result.stats[1].base_stat}</p>
+                         <div class="stat-bar">
+                        <div class="progress" style="width:${(result.stats[1].base_stat/250)*100}%"></div>
+                      </div>                   
+                    </div>
+                    <div id="Stat3">
+                        <p>${result.stats[2].stat.name}: ${result.stats[2].base_stat}</p>
+                         <div class="stat-bar">
+                        <div class="progress" style="width:${(result.stats[2].base_stat/250)*100}%"></div>
+                      </div>                   
+                    </div>
+                    <div id="Stat4">
+                        <p>${result.stats[3].stat.name}: ${result.stats[3].base_stat}</p>
+                         <div class="stat-bar">
+                        <div class="progress" style="width:${(result.stats[3].base_stat/250)*100}%"></div>
+                      </div>                   
+                    </div>
+                     <div id="Stat5">
+                        <p>${result.stats[4].stat.name}: ${result.stats[4].base_stat}</p>
+                         <div class="stat-bar">
+                        <div class="progress" style="width:${(result.stats[4].base_stat/250)*100}%"></div>
+                      </div>                   
+                    </div>
+                    <div id="Stat6">
+                        <p>${result.stats[5].stat.name}: ${result.stats[5].base_stat}</p>
+                         <div class="stat-bar">
+                        <div class="progress" style="width:${(result.stats[5].base_stat/250)*100}%"></div>
+                      </div>                   
+                    </div>
+                        `
+
+        }
+    }
+    xhr.send();
+
+}
 function get_pokement(poke){
     console.log(poke)
     document.querySelector('.card').classList.add('hiddenn')
@@ -492,6 +439,13 @@ function get_pokement(poke){
         const name = data.name;
         const abilities = data.abilities.map(ability => ability.ability.name);
         const moves = data.moves.map(move => move.move.name);
+        const types = data.types.map(type => type.type.name);
+        const height = data.height;
+        const weight = data.weight;
+        const statsName = data.stats.map(stat => stat.stat.name);
+        const statsValue = data.stats.map(stat => stat.base_stat);
+        const alternate = statsName.map((e,i) => `${e} : ${statsValue[i]}`);
+        const id = data.id;
 
         // Pick 4 random moves from the array
         let randomMoves = [];
@@ -503,15 +457,25 @@ function get_pokement(poke){
 
         document.querySelector('.stats-display').innerHTML ='';
 
+        document.body.style.backgroundImage = `url('img/${types[0]}.png')`;
+        const audio = new Audio(`https://veekun.com/dex/media/pokemon/cries/${id}.ogg`);
+        audio.play();
 
         let divb = document.createElement('div')
-        divb.innerHTML = `<h2>${name}</h2><br><p>Abilities: ${abilities.join(", ")}</p><br><p>Random moves: ${randomMoves.join(", ")}</p>`
+        divb.innerHTML = `<h2>${name}</h2><br> <p>Abilities: ${abilities.join(", ")}</p><br><p>Types: ${types.join(", ")}</p>
+                    <br>
+                    <p>Height: ${height} décimétre</p>
+                    <p>Weight: ${weight} gramme</p>
+                    <br>
+                    <p>Stats: ${alternate.join(", ")}</p>
+                    <br><p>Random moves: ${randomMoves.join(", ")}</p>`
         document.querySelector('.stats-display').appendChild(divb)
 
 
 
     });
 };
+
 function removehidden(){
     document.querySelector('.card').classList.remove('hiddenn')
     document.querySelector('.pokelone').innerHTML= '';
