@@ -19,8 +19,8 @@ recognition.onresult = function (event) {
     let input = document.querySelector("input");
     input.value = textArea;
     console.log(input);
-}
+};
 
 recognition.onerror = function (event) {
     console.log('Erreur : ' + event.error);
-}
+};

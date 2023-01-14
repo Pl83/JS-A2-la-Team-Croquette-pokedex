@@ -1113,3 +1113,58 @@ document.addEventListener('DOMContentLoaded', function() {
         
     });
 });
+
+let deletarea = document.querySelector('.deleting .droptarget');
+deletarea.addEventListener('mouseout', function(e) {
+    if (deletarea.innerHTML !== '') {
+        console.log('delete');
+        let victime = document.querySelector('.deleting .droptarget .poke');
+        let victimeid = victime.id;
+        console.log(victimeid);
+        const teamcontent = JSON.parse(localStorage.getItem('team'+selectedButton));
+        console.log(teamcontent);
+        const index = teamcontent.indexOf(victimeid);
+        console.log(index);
+        if (index != -1){
+            teamcontent.splice(index, 1);
+        }
+        console.log(teamcontent);
+        localStorage.setItem('team'+selectedButton, JSON.stringify(teamcontent));
+        setTimeout(function() {
+            deletarea.innerHTML = '';
+        }, 2000);
+        fetch(`https://pokeapi.co/api/v2/pokemon/${victimeid}`)
+                .then(response => response.json())
+                .then(data => {
+                    const type = data.types[0].type.name;
+                    console.log(type);
+                    if (type === 'grass') {
+                        console.log('tondeuez');
+                        let tondeuse = document.querySelector('.mt-image');
+                        tondeuse.classList.add('appear');
+                        setTimeout(function() {
+                            tondeuse.classList.remove('appear');
+                        }, 2500);
+
+                    } else if (type === 'fire') {
+                        console.log('washing machine');
+                        let washingmachine = document.querySelector('.mm-image');
+                        washingmachine.classList.add('appear');
+                        setTimeout(function() {
+                            washingmachine.classList.remove('appear');
+                        }, 2500);
+
+                    } else {
+                        console.log('incinerator');
+                        let incinerator = document.querySelector('.mi-image');
+                        incinerator.classList.add('appear');
+                        setTimeout(function() {
+                            incinerator.classList.remove('appear');
+                        }, 2500);
+                    }
+                });
+    } else {
+        console.log('no delete');
+    }
+});
+
