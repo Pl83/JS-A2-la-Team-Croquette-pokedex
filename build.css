@@ -595,6 +595,28 @@ main .droptarget .poke img {
   transition: opacity 1s ease-in-out;
 }
 
+.mv-image {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+  bottom: -35px;
+  left: 200px;
+  height: auto;
+  width: 200px;
+  transition: opacity 1s ease-in-out;
+}
+
+.mf-image {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+  bottom: -5px;
+  left: 190px;
+  height: auto;
+  width: 200px;
+  transition: opacity 1s ease-in-out;
+}
+
 .mi-image.appear {
   z-index: 80;
   opacity: 1;
@@ -606,6 +628,16 @@ main .droptarget .poke img {
 }
 
 .mt-image.appear {
+  z-index: 80;
+  opacity: 1;
+}
+
+.mv-image.appear {
+  z-index: 80;
+  opacity: 1;
+}
+
+.mf-image.appear {
   z-index: 80;
   opacity: 1;
 }

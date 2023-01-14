@@ -2,8 +2,6 @@ window.onload = function () {document.querySelector('.god').click(); }; //only d
 var Npokemon = 1;
 
 
-
-
 let tabs = document.querySelectorAll('.tabs');
 //console.log(tabs.innerHTML)
 tabs.forEach(element => {
@@ -21,7 +19,7 @@ tabs.forEach(element => {
                 fetch(`https://pokeapi.co/api/v2/pokemon/${Npokemon}`)
                 .then(response => response.json())
                 .then(data => {
-                    //console.log(data)
+                    console.log(data)
                     // récupère les nom, talents et capacités
                     const name = data.name;
                     const abilities = data.abilities.map(ability => ability.ability.name);
@@ -53,8 +51,21 @@ tabs.forEach(element => {
                     
 
                     let diva = document.createElement('div');
-                    diva.innerHTML = `<h2>${name}</h2><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${Npokemon}.png">`;
+                    diva.innerHTML = `<h2>${name}</h2>`;
                     document.querySelector('.pokemon_area').appendChild(diva);
+
+                    let divb = document.createElement('div');
+                    let canvas = document.createElement('canvas');
+                    canvas.height = "379";
+                    canvas.width = "342";
+                    divb.appendChild(canvas);
+                    document.querySelector('.pokemon_area').appendChild(divb);
+                    let ctx = canvas.getContext('2d');
+                    let img = new Image();
+                    img.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${Npokemon}.png`;
+                    img.onload = function() {
+                        ctx.drawImage(img, 0, 0, 300, 300);
+                    }
 
                     let dive = document.createElement('div');
                     dive.innerHTML = `
@@ -994,7 +1005,7 @@ var team3 = [];
 var team4 = [];
 var team5 = [];
 var team6 = [];
-
+localStorage.setItem("team1", JSON.stringify(team1))
 
 document.addEventListener('DOMContentLoaded', function() {
     let save = document.querySelector(".save");
@@ -1135,9 +1146,17 @@ deletarea.addEventListener('mouseout', function(e) {
         fetch(`https://pokeapi.co/api/v2/pokemon/${victimeid}`)
                 .then(response => response.json())
                 .then(data => {
-                    const type = data.types[0].type.name;
+                    if (data.types.length === 1) {
+                    var type = data.types[0].type.name;
+                    } else if (data.types.length === 2) {
+                    var type = data.types[0].type.name;
+                    var type2 = data.types[1].type.name;
+                    }
+                    
+
+
                     console.log(type);
-                    if (type === 'grass') {
+                    if (type === 'grass' || type === 'bug' && type2 !== 'flying') {
                         console.log('tondeuez');
                         let tondeuse = document.querySelector('.mt-image');
                         tondeuse.classList.add('appear');
@@ -1148,8 +1167,8 @@ deletarea.addEventListener('mouseout', function(e) {
                             audio.pause();
                         }, 2500);
                         
-
-                    } else if (type === 'fire') {
+                    } 
+                    else if (type === 'fire') {
                         console.log('washing machine');
                         let washingmachine = document.querySelector('.mm-image');
                         washingmachine.classList.add('appear');
@@ -1160,8 +1179,30 @@ deletarea.addEventListener('mouseout', function(e) {
                             audio.pause();
                         }, 2500);
                         
-
-                    } else {
+                    } 
+                    else if (type === 'water') {
+                        console.log('frigo');
+                        let frigo = document.querySelector('.mf-image');
+                        frigo.classList.add('appear');
+                        let audio = new Audio('sound_effects/mf.mp3');
+                        audio.play();
+                        setTimeout(function() {                            
+                            frigo.classList.remove('appear');
+                            audio.pause();
+                        }, 2500);
+                    } 
+                    else if ( type ==='flying' || type === 'normal' && type2 === 'flying' || type === 'bug' && type2 === 'flying') {
+                        console.log('ventilo');
+                        let ventilo = document.querySelector('.mv-image');
+                        ventilo.classList.add('appear');
+                        let audio = new Audio('sound_effects/mv.mp3');
+                        audio.play();
+                        setTimeout(function() {                            
+                            ventilo.classList.remove('appear');
+                            audio.pause();
+                        }, 2500);
+                    }
+                    else {
                         console.log('incinerator');
                         let incinerator = document.querySelector('.mi-image');
                         incinerator.classList.add('appear');
