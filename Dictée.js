@@ -1,6 +1,6 @@
 
 /* Initialise la reconnaissance vocale */
-var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition
+var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
 var recognition = new SpeechRecognition();
 
 /* Français de France */
