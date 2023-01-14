@@ -1141,25 +1141,37 @@ deletarea.addEventListener('mouseout', function(e) {
                         console.log('tondeuez');
                         let tondeuse = document.querySelector('.mt-image');
                         tondeuse.classList.add('appear');
+                        let audio = new Audio('sound_effects/mt.mp3');
+                        audio.play();
                         setTimeout(function() {
                             tondeuse.classList.remove('appear');
+                            audio.pause();
                         }, 2500);
+                        
 
                     } else if (type === 'fire') {
                         console.log('washing machine');
                         let washingmachine = document.querySelector('.mm-image');
                         washingmachine.classList.add('appear');
-                        setTimeout(function() {
+                        let audio = new Audio('sound_effects/mm.mp3');
+                        audio.play();
+                        setTimeout(function() {                            
                             washingmachine.classList.remove('appear');
+                            audio.pause();
                         }, 2500);
+                        
 
                     } else {
                         console.log('incinerator');
                         let incinerator = document.querySelector('.mi-image');
                         incinerator.classList.add('appear');
-                        setTimeout(function() {
+                        let audio = new Audio('sound_effects/mi.mp3');
+                        audio.play();
+                        setTimeout(function() {                           
                             incinerator.classList.remove('appear');
+                            audio.pause();
                         }, 2500);
+                        
                     }
                 });
     } else {
