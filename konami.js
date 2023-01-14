@@ -39,14 +39,14 @@ document.addEventListener('keydown', function(e) {
 
 function activateCheats() {
   
-  let div = document.createElement("div")
+  let div = document.createElement("div");
   div.innerHTML = `
   <video id="myVideo">
   <source src="sound_effects/Rickroll.mp4" type="video/mp4">
   </video>
-  `
-  div.classList.add("king")
-  document.body.appendChild(div)
+  `;
+  div.classList.add("king");
+  document.body.appendChild(div);
   var vid = document.getElementById("myVideo"); 
   vid.play(); 
 
