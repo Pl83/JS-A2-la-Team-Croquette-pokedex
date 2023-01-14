@@ -1,14 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="script.js" defer></script>
-  <script src="konami.js" defer></script>
   <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js" defer></script>
   <link rel="stylesheet" href="build.css">
   <link rel="icon" type="image/x-icon" href="https://media.discordapp.net/attachments/1062315926944501760/1063399101313601596/Group_1.png">
+
   <title>Pokeapi</title>
 </head>
 <body id="forest">
@@ -28,14 +27,20 @@
             <div class="droptarget"></div>
             <div class="droptarget"></div>
             <div class="droptarget"></div>
+            <button class="save">Save</button>
         </div>
     </nav>
+    
 </header>
 <main>
 
   <div id="pokedex">
     <div class="sensor">
-      <button></button>
+      <button class="play-button"></button>
+    </div>
+    <div class="controleraudio">
+      <div class="audiobtn audioup">🔊</div>
+      <div class="audiobtn audiodw">🔉</div>
     </div>
     <div class="camera-display pokemon_area" id="search-results">
 
@@ -61,9 +66,7 @@
     </div>
 
     <div class="input-pad">
-    <!-- <input type="text" id="pokemon-search">
-    <button onclick="searchPokemon()" class="input-button">Search</button> -->
-    <input list="subject" id="pokemon-search">
+        <input list="subject" id="pokemon-search" onclick="recognition.start()">
         <datalist id="subject">
             <script>
               fetch('https://pokeapi.co/api/v2/pokemon/?limit=1008')
@@ -77,8 +80,11 @@
                 })
             </script>
         </datalist>
-        <button onclick="searchPokemon()" class="input-button">        <iconify-icon id="tyu" inline icon="ic:baseline-search" width="38"></iconify-icon>
+        <button onclick="searchPokemon()" onclick="recognition.stop()" class="input-button" >        <iconify-icon id="tyu" inline icon="ic:baseline-search" width="38"></iconify-icon>
+
         </button>
+        <br>
+
   </div>
 
 
@@ -96,42 +102,22 @@
   
   </div>
 
-<!-- <div class="stock">
-
-
-    <div class="droptarget">
-        <div class="poke"  draggable="true" id="dragtarget" >
-
-        </div>
-    </div>
-
-
-    <div class="droptarget">
-        <div class="poke"  draggable="true" id="dragtarget2" >
-
-        </div>
-    </div>
-    <div class="droptarget">
-        <div class="poke"  draggable="true" id="dragtarget3" >
-
-        </div>
-    </div>
-    <div class="droptarget">
-        <div class="poke"  draggable="true" id="dragtarget4" >
-
-        </div>
-    </div>
-    <div class="droptarget">
-        <div class="poke"  draggable="true" id="dragtarget5" >
-
-        </div>
-    </div>
-
-
-
-</div> -->
 </main>
+<footer class="footer">
+  <div class="lower">
+    <button class="tn tn1" value="1">1</button>
+    <button class="tn tn2" value="2">2</button>
+    <button class="tn tn3" value="3">3</button>
+    <button class="tn tn4" value="4">4</button>
+    <button class="tn tn5" value="5">5</button>
+    <button class="tn tn6" value="6">6</button>
+  </div>
+</footer>
 
 <script src="nav-team.js"></script>
+<script src="Dictée.js"></script>
+<script src="script.js" defer></script>
+<script src="music.js" defer></script>
+<script src="konami.js" defer></script>
 </body>
 </html>

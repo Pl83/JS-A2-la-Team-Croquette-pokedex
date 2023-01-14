@@ -6,6 +6,10 @@
   font-family: "Press Start 2P";
 }
 
+body {
+  overflow-y: hidden;
+}
+
 #forest {
   background-repeat: no-repeat;
   background-size: cover;
@@ -73,32 +77,21 @@
   border: 1px solid #000;
 }
 .stat-bar .progress1 {
-  backgound-color: yellow;
   height: 100%;
 }
 .stat-bar .progress2 {
-  backgound-color: red;
-
   height: 100%;
 }
 .stat-bar .progress3 {
-  backgound-color: blue;
-
   height: 100%;
 }
 .stat-bar .progress4 {
-  backgound-color: brown;
-
   height: 100%;
 }
 .stat-bar .progress5 {
-  backgound-color: green;
-
   height: 100%;
 }
 .stat-bar .progress6 {
-  backgound-color: purple;
-
   height: 100%;
 }
 
@@ -118,6 +111,17 @@
   float: left;
   margin-left: 25px;
   border: 3px solid white;
+}
+
+.controleraudio {
+  grid-column-start: 1;
+  grid-row-start: 2;
+}
+.controleraudio div {
+  background-color: yellow;
+  border: 1px solid rgb(170, 170, 0);
+  width: 25px;
+  height: 25px;
 }
 
 .botom-actions {
@@ -334,6 +338,12 @@ nav {
   transition: 1.5s;
   box-shadow: 11px 20px 17px 3px hsla(0deg, 0%, 0%, 0.25);
 }
+nav .save {
+  display: block;
+  background-color: rgba(0, 0, 0, 0);
+  color: rgba(0, 0, 0, 0);
+  border-color: rgba(0, 0, 0, 0);
+}
 
 .nav_active {
   width: 120px;
@@ -345,7 +355,7 @@ nav {
   right: -71px;
 }
 .nav_active .slots {
-  height: 100vh;
+  height: 95vh;
   padding-top: 30px;
   display: flex;
   align-items: center;
@@ -361,6 +371,26 @@ nav {
   background-color: white;
   border: hsl(0deg, 100%, 36%) solid 3px;
   transition: 2.5s;
+}
+.nav_active .slots .save {
+  display: block;
+  background-color: rgb(255, 255, 255);
+  color: #000;
+  border-color: #404040;
+}
+.nav_active .slots .save:hover {
+  cursor: pointer;
+}
+.nav_active .morere {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: larger;
+  font-weight: bolder;
+}
+.nav_active .morere:hover {
+  cursor: pointer;
 }
 
 .pokebo img {
@@ -382,6 +412,7 @@ main .droptarget {
 }
 main .droptarget .poke img {
   width: 100%;
+  z-index: 50;
 }
 
 .poke {
@@ -413,6 +444,68 @@ main .droptarget .poke img {
 #guessGame > a {
   color: white;
   text-decoration: none;
+}
+
+.footer {
+  padding-top: 500px;
+}
+.footer .lower {
+  position: absolute;
+  transition: 2s;
+  border-radius: 800px;
+  gap: 10px;
+  bottom: -550px;
+  left: 25%;
+  width: 50%;
+  height: 400px;
+  background-color: hsl(0deg, 0%, 85%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 250px;
+}
+.footer .lower button {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: hsl(0deg, 0%, 85%);
+  border: 1px solid black;
+  font-size: 30px;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.footer-active {
+  padding-top: 500px;
+}
+.footer-active .lower {
+  position: absolute;
+  transition: 1.5s;
+  border-radius: 800px;
+  gap: 10px;
+  bottom: -250px;
+  left: 25%;
+  width: 50%;
+  height: 400px;
+  background-color: hsl(0deg, 0%, 85%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding-bottom: 250px;
+}
+.footer-active .lower button {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: hsl(0deg, 0%, 85%);
+  border: 1px solid black;
+  font-size: 30px;
+  font-weight: bolder;
+  cursor: pointer;
+}
+
+.selected {
+  background-color: rgb(39, 223, 255) !important;
 }
 
 /*# sourceMappingURL=build.css.map */
