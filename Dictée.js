@@ -4,21 +4,21 @@ var SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
 var recognition = new SpeechRecognition();
 
 /* Français de France */
-recognition.lang = 'fr-FR';
+recognition.lang = 'en-US';
 
 /* Lorsque une voix est détectée */
 recognition.onresult = function (event) {
     /* récupère le mot ou la phrase */
     var sentence = event.results[0][0].transcript;
-    console.log('Resultat : ' + sentence + '.');
-    console.log('Indice de confiance : ' + event.results[0][0].confidence);
+    //console.log('Resultat : ' + sentence + '.');
+    //console.log('Indice de confiance : ' + event.results[0][0].confidence);
     /* Ajoute la phrase à la zone texte en ajoutant une majuscule et un point */
-    console.log(sentence);
+    //console.log(sentence);
     let textArea = sentence.toLowerCase();
-    console.log(textArea);
+    //console.log(textArea);
     let input = document.querySelector("input");
     input.value = textArea;
-    console.log(input);
+    //console.log(input);
 };
 
 recognition.onerror = function (event) {

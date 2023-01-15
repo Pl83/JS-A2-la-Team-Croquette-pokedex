@@ -100,7 +100,6 @@ body {
   grid-row-start: 2;
 }
 .sensor button {
-  cursor: pointer;
   background: #71CDF4;
   border-radius: 50%;
   width: 50px;
@@ -322,8 +321,10 @@ body {
 }
 
 .king {
-  position: fixed;
-  top: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   width: 100vh;
   height: auto;
 }
@@ -456,7 +457,7 @@ main .droptarget .poke img {
   width: 120px;
   height: 150px;
   background-color: hsl(0deg, 0%, 85%);
-  bottom: -160px;
+  bottom: -360px;
   left: 240px;
   border-top-left-radius: 25px;
   border-top-right-radius: 25px;
@@ -514,8 +515,7 @@ main .droptarget .poke img {
   background-color: hsl(0deg, 0%, 85%);
   bottom: 0;
   left: 240px;
-  border-top-left-radius: 25px;
-  border-top-right-radius: 25px;
+  border-radius: 25px;
   text-align: center;
 }
 .footer-active .deleting h3 {
@@ -640,6 +640,140 @@ main .droptarget .poke img {
 .mf-image.appear {
   z-index: 80;
   opacity: 1;
+}
+
+.backlink {
+  color: gray;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 60;
+}
+
+.overlayb {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 60;
+}
+
+#receptacle {
+  width: 450px;
+  height: 350px;
+  z-index: 70;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: #2b2b2b;
+  border-radius: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  padding: 10px;
+}
+
+#receptacle > img {
+  width: 140px;
+  height: 140px;
+  border-radius: 5px;
+  margin: 10px;
+}
+
+.lithg {
+  filter: drop-shadow(0 0 0.75rem rgb(255, 255, 255));
+}
+
+.ninja {
+  display: none;
+}
+
+.copper {
+  border: 2px solid #745f5f;
+}
+
+.silver {
+  border: 2px solid silver;
+}
+
+.gold {
+  border: 2px solid gold;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.platinum {
+  border: 3px solid;
+  border-image: linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet) 1;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+.register img {
+  z-index: 89;
+  position: absolute;
+  top: 38%;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  height: 370px;
+  width: 370px;
+}
+.register .register-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 90;
+  width: 350px;
+  height: 200px;
+  text-align: center;
+  background-color: #3a3a3a;
+  color: #E5F6FC;
+  border-radius: 10px;
+  border-top-right-radius: 0px;
+  font-size: larger;
+}
+
+.tuto img {
+  z-index: 89;
+  position: absolute;
+  top: 31%;
+  left: 64%;
+  transform: translate(-50%, -50%);
+  height: 370px;
+  width: 370px;
+}
+.tuto .tuto-container {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 90;
+  width: 500px;
+  height: 340px;
+  text-align: center;
+  background-color: #3a3a3a;
+  color: #E5F6FC;
+  border-radius: 10px;
+  border-top-right-radius: 0px;
+  font-size: larger;
+}
+
+.hname {
+  position: relative;
+  top: 13px;
+  left: 30px;
+  font-size: 20px;
+  font-weight: bold;
 }
 
 /*# sourceMappingURL=build.css.map */

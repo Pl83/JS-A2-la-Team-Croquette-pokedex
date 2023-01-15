@@ -7,11 +7,43 @@
   <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js" defer></script>
   <link rel="stylesheet" href="build.css">
   <link rel="icon" type="image/x-icon" href="https://media.discordapp.net/attachments/1062315926944501760/1063399101313601596/Group_1.png">
-
   <title>Pokedex</title>
 </head>
 <body id="forest">
-
+<section class="register">
+    <div class="overlay"></div>
+    <img src="img/mg.png" alt="motisma_prof">
+    <div class="register-container">
+      <br>
+      <h1>Bienvenue a toi !</h1>
+      <br>
+      <p>Comment t'appel tu jeune dresseur ?</p>
+      <br>
+      <label for="name">Prénom :</label><br>
+      <input type="text" id="name" name="name" value="ton prenom">
+      <button class="nameregister">Validate</button>
+    </div>
+</section>
+<section class="tuto ninja">
+  <div class="overlay"></div>
+  <img src="img/mg.png" alt="motisma_prof">
+  <div class="tuto-container">
+    <br>
+    <h2 class="insertname"></h2>
+    <br>
+    <h2>Passe ton curseur sur la pokeball a gauche pour ouvrir le menu des équipes</h2>
+    <br>
+    <h2>Les boutons jaune controle le fond sonore</h2>
+    <br>
+    <h2>Utilise le cross-button ou les fléche directionel de ton clavier pour naviger dans le pokedex</h2>
+    <br>
+    <h2>Trouve des easter egg pour obtenir des badge</h2>
+    <br>
+    <h2>Raise Mewtwo est un minijeux developer par des amis bigup a eux</h2>
+    <br>
+    <h2>Amuse toi bien !</h2> <button class="go">Go !</button>
+  </div>
+</section>
 <header>
     <nav id="equipe" >
         <svg class="svg-active "onmouseenter="active()" width="144" height="144" viewBox="0 0 144 144" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -37,6 +69,7 @@
   <div id="pokedex">
     <div class="sensor">
       <button class="play-button"></button>
+      <h1 class="hname"></h1>
     </div>
     <div class="controleraudio">
       <div class="audiobtn audioup">🔊</div>
@@ -87,6 +120,15 @@
         <br>
 
   </div>
+  <section class="etuitarea ninja">
+    <div class="overlayb"></div>
+    <div id="receptacle">
+      <img class="b1" src="img/b1n.png" alt="badge 1">
+      <img class="b2" src="img/b2n.png" alt="badge 2">
+      <img class="b3" src="img/b3n.png" alt="badge 3">
+      <img class="b4" src="img/b4n.png" alt="badge 4">
+    </div>
+  </section>
 
 
     <div class="bottom-modes">
@@ -94,10 +136,10 @@
         <button class="level-button bta tabs god" value="a">Pokedex</button>
         <button class="level-button btb tabs" value="b">Random</button>
         <button class="level-button btc tabs" id="guessGame" value="c"><a href="guess.html">Guess Game</a></button>
-        <button class="level-button btd tabs" value="d">?</button>
+        <button class="level-button btd tabs" value="d">Help</button>
       
-        <button class="pokedex-mode black-button">Pokedex</button>
-        <button class="game-mode black-button"><a href="https://iim-creative-technology.github.io/JS-A2-pouetkedex/">Raise Mewtwo</a></button>
+        <button class="pokedex-mode black-button etuit">Badge</button>
+        <button class="game-mode black-button"><a class="backlink" href="https://iim-creative-technology.github.io/JS-A2-pouetkedex/">Raise Mewtwo</a></button>
       
     </div>
   
@@ -123,7 +165,7 @@
     <button class="tn tn6" value="6">6</button>
   </div>
 </footer>
-
+<script src="session.js" async></script>
 <script src="nav-team.js"></script>
 <script src="Dictée.js"></script>
 <script src="music.js"></script>

@@ -15,3 +15,4 @@ var audio = new Audio('sound_effects/main.mp3');
   audiodw.addEventListener("click", ()=> {
     audio.volume -= 0.1;
   })
+  
