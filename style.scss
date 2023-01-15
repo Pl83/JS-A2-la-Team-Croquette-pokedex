@@ -771,6 +771,32 @@ padding: 10px;
     font-size: larger;
   }
 }
+.tuto{
+  img{
+    z-index: 89;
+    position: absolute;
+    top: 31%;
+    left: 64%;
+    transform: translate(-50%, -50%);
+    height: 370px;
+    width: 370px;
+  }
+  .tuto-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 90;
+    width: 500px;
+    height: 340px;
+    text-align: center;
+    background-color: #3a3a3a;
+    color: #E5F6FC;
+    border-radius: 10px;
+    border-top-right-radius: 0px;
+    font-size: larger;
+  }
+}
 
 .hname{
   position : relative;

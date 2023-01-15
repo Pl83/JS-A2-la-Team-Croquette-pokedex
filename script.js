@@ -1,6 +1,12 @@
 window.onload = function () {document.querySelector('.god').click(); }; //only do not move it, it need to be the first line
 var Npokemon = 1;
 
+if (localStorage.getItem("name") === null) {
+    hname.innerHTML = "Pokedex";
+} else {
+    hname.innerHTML = "Pokedex de " + localStorage.getItem("name");
+}
+
 let pat = localStorage.getItem("b1");
 if (pat === null) {
     localStorage.setItem("b1", "0");
