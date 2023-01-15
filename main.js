@@ -53,7 +53,7 @@ fetch('https://pokeapi.co/api/v2/pokemon/'+rand)
                 rep.appendChild(inside);
                 const img = document.querySelector("img");
                 img.setAttribute("src", "https://static.posters.cz/image/1300/affiches-et-posters/wwe-john-cena-09-i8508.jpg");
-                
+
                 localStorage.setItem("b4", "1");
                 
                 oui.play()
