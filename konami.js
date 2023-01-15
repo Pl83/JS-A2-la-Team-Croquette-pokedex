@@ -49,6 +49,6 @@ function activateCheats() {
   document.body.appendChild(div);
   var vid = document.getElementById("myVideo"); 
   vid.play(); 
-
-  alert("cheats activated");
+  localStorage.setItem("b2", "1");
+  alert("cheats activated, also you won badge number 2");
 }
