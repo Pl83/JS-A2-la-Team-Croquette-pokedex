@@ -16,7 +16,7 @@ recognition.onresult = function (event) {
     console.log(sentence);
     let textArea = sentence.toLowerCase();
     console.log(textArea);
-    let input = document.querySelector("input");
+    input = document.querySelector("input");
     input.value = textArea;
     console.log(input);
 };
