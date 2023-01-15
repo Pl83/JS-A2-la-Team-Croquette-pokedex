@@ -117,7 +117,7 @@ tabs.forEach(element => {
                     <div class="stat-bar">
                     <div class="progress5"  style="width:${(statValue5/250)*100}%; background-color: gray;"></div>
                     </div>   
-                      <p>${statName6}: ${statValue6}</p>
+                    <p>${statName6}: ${statValue6}</p>
                     <div class="stat-bar">
                     <div class="progress6"  style="width:${(statValue6/250)*100}%; background-color: gray;"></div>
                     </div>   `;
@@ -1306,7 +1306,7 @@ if (localStorage.getItem('tondeuze') === '1' && localStorage.getItem('washingmac
 
 var teamCynthia = localStorage.getItem("team1");
 if(teamCynthia === JSON.stringify(["spiritomb", "lucario", "milotic", "garchomp"])){
-    console.log("cynthia");
+    //console.log("cynthia");
     localStorage.setItem('b1', '1');
     let contb1 = 0;
     if (localStorage.getItem('contb1') === 0) {
@@ -1372,3 +1372,12 @@ etuitcolor.classList.add("gold");
 } else if (count == 4) {
 etuitcolor.classList.add("platinum");
 }
+
+
+let help = document.querySelector('.help');
+help.addEventListener('click', function() {
+    let tuto = document.querySelector('.tuto');
+    if (tuto.classList.contains('ninja')) {
+        tuto.classList.remove('ninja');
+    }
+});

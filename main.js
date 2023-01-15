@@ -88,7 +88,6 @@ fetch('https://pokeapi.co/api/v2/pokemon/'+rand)
     });
 }
 
-
 btn2 = document.querySelector("#sound");
 btn2.addEventListener("click", ()=> {
     new Audio('sound_effects/whos-that-pokemon.mp3').play();
