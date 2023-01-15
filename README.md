@@ -1,6 +1,6 @@
 # JS-A2-la-Team-Croquette-pokedex
-Ce projet à pour but d'utiliser la PokeApi.
-Nous avons donc réaliser un Pkedex sur lequel nous avons ajouter des fonctionaliter bonus.
+Ce projet a pour but d'utiliser la PokeApi.
+Nous avons donc réalisé un Pokedex sur lequel nous avons ajouté des fonctionaliter bonus.
 
 
 Video Solution des badges : 
