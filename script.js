@@ -19,7 +19,7 @@ tabs.forEach(element => {
                 fetch(`https://pokeapi.co/api/v2/pokemon/${Npokemon}`)
                 .then(response => response.json())
                 .then(data => {
-                    //console.log(data)
+                    console.log(data)
                     // récupère les nom, talents et capacités
                     const name = data.name;
                     const abilities = data.abilities.map(ability => ability.ability.name);
@@ -38,8 +38,7 @@ tabs.forEach(element => {
                     const statValue5 = data.stats[4].base_stat ;
                     const statName6 = data.stats[5].stat.name;
                     const statValue6 = data.stats[5].base_stat ;
-                    console.log(types[0])
-
+                    console.log(types[0]);
                     // Pick 4 random moves from the array
                     let randomMoves = [];
                     for (let i = 0; i < 4; i++) {
@@ -51,11 +50,24 @@ tabs.forEach(element => {
                     document.querySelector('.stats-display').innerHTML ='';
                     
 
-                    let diva = document.createElement('div')
-                    diva.innerHTML = `<h2>${name}</h2><img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${Npokemon}.png">`
-                    document.querySelector('.pokemon_area').appendChild(diva)
+                    let diva = document.createElement('div');
+                    diva.innerHTML = `<h2>${name}</h2>`;
+                    document.querySelector('.pokemon_area').appendChild(diva);
 
-                    let dive = document.createElement('div')
+                    let divb = document.createElement('div');
+                    let canvas = document.createElement('canvas');
+                    canvas.height = "379";
+                    canvas.width = "342";
+                    divb.appendChild(canvas);
+                    document.querySelector('.pokemon_area').appendChild(divb);
+                    let ctx = canvas.getContext('2d');
+                    let img = new Image();
+                    img.src = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${Npokemon}.png`;
+                    img.onload = function() {
+                        ctx.drawImage(img, 0, 0, 300, 300);
+                    }
+
+                    let dive = document.createElement('div');
                     dive.innerHTML = `
                     <h2>${name}</h2>
                     <p>Possible set: ${randomMoves.join(", ")}
@@ -85,18 +97,18 @@ tabs.forEach(element => {
                     <div class="stat-bar">
                     <div class="progress6"  style="width:${(statValue6/250)*100}%; background-color: gray;"></div>
                     </div>   `;
-                    document.querySelector('.stats-display').appendChild(dive)
+                    document.querySelector('.stats-display').appendChild(dive);
 
                     document.querySelector('.a').innerHTML ='';
                     
-                    let pik = document.createElement('div')
-                    pik.classList.add('droptarget')
+                    let pik = document.createElement('div');
+                    pik.classList.add('droptarget');
                     pik.innerHTML = `
                     <div class="poke"  draggable="true" id="${name}" >
                     <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${Npokemon}.png" draggable="false">
                     </div>
                     `
-                    document.querySelector('.a').appendChild(pik)
+                    document.querySelector('.a').appendChild(pik);
 
 
                     document.body.style.backgroundImage = `url('img/${types[0]}.png')`;
@@ -396,7 +408,7 @@ tabs.forEach(element => {
                                             getEvolutions(evoChain.evolves_to[i]);
                                         }
                                     }
-                                }
+                                };
                                 getEvolutions(data.chain);
                                 console.log(evolutions);
                                 evolutions.forEach(evolution => {
@@ -486,12 +498,12 @@ tabs.forEach(element => {
 
             document.querySelector('.pokemon_area').innerHTML = '';
             document.querySelector('.stats-display').innerHTML = '';
-            var div = document.createElement('div')
+            var div = document.createElement('div');
             div.classList.add('card');
             for(let i =0 ; i<9 ; i++){
-                poke =Math.floor(Math.random()*  900 )
+                poke =Math.floor(Math.random()*  900 );
                 if(poke == 0){
-                    poke =Math.floor(Math.random()*  900 )
+                    poke =Math.floor(Math.random()*  900 );
                 }
                 else{
 
@@ -748,8 +760,8 @@ var selectedButton = '0';
 document.addEventListener('DOMContentLoaded', function() {
     let button = document.querySelector(".tn[value='1']");
     button.classList.add("selected");
-    selectedButton = '1'
-    console.log('validate')
+    selectedButton = '1';
+    console.log('validate');
     var team;
     if(localStorage.getItem("team"+selectedButton)){
         team = JSON.parse(localStorage.getItem("team"+selectedButton));
@@ -799,7 +811,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 fetch(`https://pokeapi.co/api/v2/pokemon/${team[i]}`)
                     .then(response => response.json())
                     .then(data => {
-                        console.log(data)
+                        console.log(data);
                         const name = data.name;
                         const id = data.id;
                         e.innerHTML = `<div class="poke"  draggable="true" id="${name}" >
@@ -875,7 +887,7 @@ document.addEventListener('DOMContentLoaded', function() {
                         const id = data.id;
                         e.innerHTML = `<div class="poke"  draggable="true" id="${name}" >
                         <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png" draggable="false">
-                        </div>`
+                        </div>`;
                     });
                 
             });
@@ -903,12 +915,12 @@ document.addEventListener('DOMContentLoaded', function() {
                 fetch(`https://pokeapi.co/api/v2/pokemon/${team[i]}`)
                     .then(response => response.json())
                     .then(data => {
-                        console.log(data)
+                        console.log(data);
                         const name = data.name;
                         const id = data.id;
                         e.innerHTML = `<div class="poke"  draggable="true" id="${name}" >
                         <img src="https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${id}.png" draggable="false">
-                        </div>`
+                        </div>`;
                     });
                 
             });
@@ -941,7 +953,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 fetch(`https://pokeapi.co/api/v2/pokemon/${team[i]}`)
                     .then(response => response.json())
                     .then(data => {
-                        console.log(data)
+                        console.log(data);
                         const name = data.name;
                         const id = data.id;
                         e.innerHTML = `<div class="poke"  draggable="true" id="${name}" >
@@ -974,7 +986,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 fetch(`https://pokeapi.co/api/v2/pokemon/${team[i]}`)
                     .then(response => response.json())
                     .then(data => {
-                        console.log(data)
+                        console.log(data);
                         const name = data.name;
                         const id = data.id;
                         e.innerHTML = `<div class="poke"  draggable="true" id="${name}" >
@@ -993,7 +1005,7 @@ var team3 = [];
 var team4 = [];
 var team5 = [];
 var team6 = [];
-
+localStorage.setItem("team1", JSON.stringify(team1))
 
 document.addEventListener('DOMContentLoaded', function() {
     let save = document.querySelector(".save");
@@ -1018,7 +1030,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }else{console.log("non");}
 
     } else if (selectedButton === '2'){
-        console.log('bliat2')
+        console.log('bliat2');
         team2 = [];
         let droptargets = document.querySelectorAll("header .droptarget");
         let poke = document.getElementsByClassName("poke");
@@ -1036,7 +1048,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }else{console.log("non");}
 
     } else if (selectedButton === '3'){
-        console.log('bliat3')
+        console.log('bliat3');
         team3 = [];
         let droptargets = document.querySelectorAll("header .droptarget");
         let poke = document.getElementsByClassName("poke");
@@ -1072,7 +1084,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }else{console.log("non");}
 
     } else if (selectedButton === '5'){
-        console.log('bliat5')
+        console.log('bliat5');
         team5 = [];
         let droptargets = document.querySelectorAll("header .droptarget");
         let poke = document.getElementsByClassName("poke");
@@ -1090,7 +1102,7 @@ document.addEventListener('DOMContentLoaded', function() {
         }else{console.log("non");}
 
     } else if (selectedButton === '6'){
-        console.log('bliat6')
+        console.log('bliat6');
         team6 = [];
         let droptargets = document.querySelectorAll("header .droptarget");
         let poke = document.getElementsByClassName("poke");
@@ -1111,3 +1123,100 @@ document.addEventListener('DOMContentLoaded', function() {
         
     });
 });
+
+let deletarea = document.querySelector('.deleting .droptarget');
+deletarea.addEventListener('mouseout', function(e) {
+    if (deletarea.innerHTML !== '') {
+        console.log('delete');
+        let victime = document.querySelector('.deleting .droptarget .poke');
+        let victimeid = victime.id;
+        console.log(victimeid);
+        const teamcontent = JSON.parse(localStorage.getItem('team'+selectedButton));
+        console.log(teamcontent);
+        const index = teamcontent.indexOf(victimeid);
+        console.log(index);
+        if (index != -1){
+            teamcontent.splice(index, 1);
+        }
+        console.log(teamcontent);
+        localStorage.setItem('team'+selectedButton, JSON.stringify(teamcontent));
+        setTimeout(function() {
+            deletarea.innerHTML = '';
+        }, 2000);
+        fetch(`https://pokeapi.co/api/v2/pokemon/${victimeid}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.types.length === 1) {
+                    var type = data.types[0].type.name;
+                    } else if (data.types.length === 2) {
+                    var type = data.types[0].type.name;
+                    var type2 = data.types[1].type.name;
+                    }
+                    
+
+
+                    console.log(type);
+                    if (type === 'grass' || type === 'bug' && type2 !== 'flying') {
+                        console.log('tondeuez');
+                        let tondeuse = document.querySelector('.mt-image');
+                        tondeuse.classList.add('appear');
+                        let audio = new Audio('sound_effects/mt.mp3');
+                        audio.play();
+                        setTimeout(function() {
+                            tondeuse.classList.remove('appear');
+                            audio.pause();
+                        }, 2500);
+                        
+                    } 
+                    else if (type === 'fire') {
+                        console.log('washing machine');
+                        let washingmachine = document.querySelector('.mm-image');
+                        washingmachine.classList.add('appear');
+                        let audio = new Audio('sound_effects/mm.mp3');
+                        audio.play();
+                        setTimeout(function() {                            
+                            washingmachine.classList.remove('appear');
+                            audio.pause();
+                        }, 2500);
+                        
+                    } 
+                    else if (type === 'water') {
+                        console.log('frigo');
+                        let frigo = document.querySelector('.mf-image');
+                        frigo.classList.add('appear');
+                        let audio = new Audio('sound_effects/mf.mp3');
+                        audio.play();
+                        setTimeout(function() {                            
+                            frigo.classList.remove('appear');
+                            audio.pause();
+                        }, 2500);
+                    } 
+                    else if ( type ==='flying' || type === 'normal' && type2 === 'flying' || type === 'bug' && type2 === 'flying') {
+                        console.log('ventilo');
+                        let ventilo = document.querySelector('.mv-image');
+                        ventilo.classList.add('appear');
+                        let audio = new Audio('sound_effects/mv.mp3');
+                        audio.play();
+                        setTimeout(function() {                            
+                            ventilo.classList.remove('appear');
+                            audio.pause();
+                        }, 2500);
+                    }
+                    else {
+                        console.log('incinerator');
+                        let incinerator = document.querySelector('.mi-image');
+                        incinerator.classList.add('appear');
+                        let audio = new Audio('sound_effects/mi.mp3');
+                        audio.play();
+                        setTimeout(function() {                           
+                            incinerator.classList.remove('appear');
+                            audio.pause();
+                        }, 2500);
+                        
+                    }
+                });
+    } else {
+        console.log('no delete');
+    }
+});
+

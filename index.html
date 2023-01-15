@@ -1,16 +1,14 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <script src="script.js" defer></script>
-  <script src="music.js" defer></script>
-  <script src="konami.js" defer></script>
   <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js" defer></script>
   <link rel="stylesheet" href="build.css">
   <link rel="icon" type="image/x-icon" href="https://media.discordapp.net/attachments/1062315926944501760/1063399101313601596/Group_1.png">
-  <title>Pokeapi</title>
+
+  <title>Pokedex</title>
 </head>
 <body id="forest">
 
@@ -68,7 +66,7 @@
     </div>
 
     <div class="input-pad">
-    <input list="subject" id="pokemon-search">
+        <input list="subject" id="pokemon-search" onclick="recognition.start()">
         <datalist id="subject">
             <script>
               fetch('https://pokeapi.co/api/v2/pokemon/?limit=1008')
@@ -82,8 +80,12 @@
                 })
             </script>
         </datalist>
-        <button onclick="searchPokemon()" class="input-button">        <iconify-icon id="tyu" inline icon="ic:baseline-search" width="38"></iconify-icon>
+        <button onclick="searchPokemon()" onclick="recognition.stop()" class="input-button" >
+            <iconify-icon id="tyu" inline icon="ic:baseline-search" width="38"></iconify-icon>
+
         </button>
+        <br>
+
   </div>
 
 
@@ -92,10 +94,10 @@
         <button class="level-button bta tabs god" value="a">Pokedex</button>
         <button class="level-button btb tabs" value="b">Random</button>
         <button class="level-button btc tabs" id="guessGame" value="c"><a href="guess.html">Guess Game</a></button>
-        <button class="level-button btd tabs" value="d">Search</button>
+        <button class="level-button btd tabs" value="d">?</button>
       
         <button class="pokedex-mode black-button">Pokedex</button>
-        <button class="game-mode black-button">Game</button>
+        <button class="game-mode black-button"><a href="https://iim-creative-technology.github.io/JS-A2-pouetkedex/">Raise Mewtwo</a></button>
       
     </div>
   
@@ -103,6 +105,15 @@
 
 </main>
 <footer class="footer">
+  <img src="img/MI.png" class="mi-image">
+  <img src="img/MM.png" class="mm-image">
+  <img src="img/MT.png" class="mt-image">
+  <img src="img/MV.png" class="mv-image">
+  <img src="img/MF.png" class="mf-image">
+  <div class="deleting">
+    <h3>Send back</h3>
+    <div class="droptarget"></div>
+  </div>
   <div class="lower">
     <button class="tn tn1" value="1">1</button>
     <button class="tn tn2" value="2">2</button>
@@ -114,5 +125,9 @@
 </footer>
 
 <script src="nav-team.js"></script>
+<script src="Dictée.js"></script>
+<script src="music.js"></script>
+<script src="konami.js"></script>
+<script src="script.js" defer></script>
 </body>
 </html>
