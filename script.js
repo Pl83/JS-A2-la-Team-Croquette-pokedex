@@ -1377,7 +1377,12 @@ etuitcolor.classList.add("platinum");
 let help = document.querySelector('.help');
 help.addEventListener('click', function() {
     let tuto = document.querySelector('.tuto');
+    console.log('turbo');
     if (tuto.classList.contains('ninja')) {
         tuto.classList.remove('ninja');
     }
+    let go = document.querySelector('.go');
+    go.addEventListener('click', function() {
+    tuto.classList.add('ninja');
+    });
 });
