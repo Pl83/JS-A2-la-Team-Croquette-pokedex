@@ -7,16 +7,24 @@
   <script src="https://code.iconify.design/iconify-icon/1.0.2/iconify-icon.min.js" defer></script>
   <link rel="stylesheet" href="build.css">
   <link rel="icon" type="image/x-icon" href="https://media.discordapp.net/attachments/1062315926944501760/1063399101313601596/Group_1.png">
-
   <title>Pokedex</title>
 </head>
 <body id="forest">
-<section class="tuto">
+<section class="register">
     <div class="overlay"></div>
-    <div class="tuto-container">
-      
+    <img src="img/mg.png" alt="">
+    <div class="register-container">
+      <br>
+      <h1>Bienvenue a toi !</h1>
+      <br>
+      <p>Comment t'appel tu jeune dresseur ?</p>
+      <br>
+      <label for="name">Prénom :</label><br>
+      <input type="text" id="name" name="name" value="ton prenom">
+      <button class="nameregister">Validate</button>
     </div>
 </section>
+
 <header>
     <nav id="equipe" >
         <svg class="svg-active "onmouseenter="active()" width="144" height="144" viewBox="0 0 144 144" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -42,6 +50,7 @@
   <div id="pokedex">
     <div class="sensor">
       <button class="play-button"></button>
+      <h1 class="hname"></h1>
     </div>
     <div class="controleraudio">
       <div class="audiobtn audioup">🔊</div>
@@ -137,7 +146,7 @@
     <button class="tn tn6" value="6">6</button>
   </div>
 </footer>
-
+<script src="session.js" async></script>
 <script src="nav-team.js"></script>
 <script src="Dictée.js"></script>
 <script src="music.js"></script>

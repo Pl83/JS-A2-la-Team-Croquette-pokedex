@@ -742,3 +742,41 @@ padding: 10px;
     linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet) 1;
   box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
+
+
+
+.register {
+  img{
+    z-index: 89;
+    position: absolute;
+    top: 38%;
+    left: 60%;
+    transform: translate(-50%, -50%);
+    height: 370px;
+    width: 370px;
+  }
+  .register-container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 90;
+    width: 350px;
+    height: 200px;
+    text-align: center;
+    background-color: #3a3a3a;
+    color: #E5F6FC;
+    border-radius: 10px;
+    border-top-right-radius: 0px;
+    font-size: larger;
+  }
+}
+
+.hname{
+  position : relative;
+  top: 13px;
+  left: 30px;
+  font-size: 20px;
+  font-weight: bold;
+  
+}
