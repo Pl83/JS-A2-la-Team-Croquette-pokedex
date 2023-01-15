@@ -5,11 +5,17 @@ body{
 }
 
 img{
-    height: 300px;
+    height: 400px;
+}
+
+h1{
+    font-size: 60px;
+    text-align: center;
 }
 
 a{
     color: white;
+    font-size: 20px;
 }
 
 #sound:hover{
@@ -20,7 +26,16 @@ a{
     display: none;
 }
 
+#answer{
+    color: white;
+    font-size: 20px;
+}
+
 .hide{
     -webkit-filter : brightness(0%);
     filter : brightness(0%);
+}
+
+.mid{
+    margin-left: 12%;
 }
