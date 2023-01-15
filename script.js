@@ -1296,14 +1296,24 @@ overlayb.addEventListener('click', function() {
 });
 if (localStorage.getItem('tondeuze') === '1' && localStorage.getItem('washingmachine') === '1' && localStorage.getItem('frigo') === '1' && localStorage.getItem('ventilo') === '1' && localStorage.getItem('incinerator') === '1') {
     localStorage.setItem('b3', '1');
-    alert("You won badge number 3");
+    let contb3 = 0;
+    if (localStorage.getItem('contb3') === 0) {
+        alert("You won badge number 3");
+        contb3++;
+        localStorage.setItem('contb3', contb3);
+    }
 }
 
 var teamCynthia = localStorage.getItem("team1");
 if(teamCynthia === JSON.stringify(["spiritomb", "lucario", "milotic", "garchomp"])){
     console.log("cynthia");
     localStorage.setItem('b1', '1');
+    let contb1 = 0;
+    if (localStorage.getItem('contb1') === 0) {
     alert("You won badge number 1");
+    contb1++;
+    localStorage.setItem('contb1', contb1);
+    }
 }
 
 let b1Value = localStorage.getItem("b1");
