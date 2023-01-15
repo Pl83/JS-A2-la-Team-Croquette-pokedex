@@ -497,7 +497,7 @@ main{
     width: 120px;
     height: 150px;
     background-color: hsla(0, 0%, 85%, 1);
-    bottom: -160px;
+    bottom: -360px;
     left: 240px;
     border-top-left-radius: 25px;
     border-top-right-radius: 25px;
@@ -556,8 +556,7 @@ main{
     background-color: hsla(0, 0%, 85%, 1);
     bottom: 0;
     left: 240px;
-    border-top-left-radius: 25px;
-    border-top-right-radius: 25px;
+    border-radius: 25px;
     text-align: center; 
     h3{
       padding-top: 20px;
@@ -723,4 +722,23 @@ padding: 10px;
 
 .ninja{
   display: none;
+}
+
+.copper{
+  border: 2px solid #745f5f;
+}
+
+.silver{
+  border: 2px solid silver;
+}
+
+.gold{
+  border: 2px solid gold;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+.platinum{
+  border: 3px solid;
+  border-image: 
+    linear-gradient(to right, red, orange, yellow, green, blue, indigo, violet) 1;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
 }
