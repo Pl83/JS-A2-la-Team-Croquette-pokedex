@@ -54,17 +54,16 @@ fetch('https://pokeapi.co/api/v2/pokemon/'+rand)
                 const img = document.querySelector("img");
                 img.setAttribute("src", "https://static.posters.cz/image/1300/affiches-et-posters/wwe-john-cena-09-i8508.jpg");
             }else{
-                /*
                 oui.play()
 
-                //oui.addEventListener('ended', (event) => {
+                oui.addEventListener('ended', (event) => {
                 console.log(data["name"])
                 let utterance = new SpeechSynthesisUtterance(data["name"])
                 utterance.lang = 'en-US'
                 speechSynthesis.speak(utterance)
-                //})
-                */
-                console.log("A")
+                })
+
+                //console.log("A")
                 rep.innerHTML="" 
                 if(guess.value===data["name"]){
                     console.log("OUI");
@@ -90,5 +89,6 @@ btn2.addEventListener("click", ()=> {
 
 again = document.querySelector("#again");
 again.addEventListener("click", ()=> {
-    guessGame();
+    location.reload(true);
+    //guessGame();
 })
