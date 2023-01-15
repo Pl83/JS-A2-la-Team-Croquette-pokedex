@@ -1,11 +1,22 @@
 window.onload = function () {document.querySelector('.god').click(); }; //only do not move it, it need to be the first line
 var Npokemon = 1;
 
-if (localStorage.getItem("name") === null) {
-    hname.innerHTML = "Pokedex";
+if (hname === undefined) {
+    let hname = document.querySelector(".hname");
+    if (localStorage.getItem("name") === null) {
+        hname.innerHTML = "Pokedex";
+    } else {
+        hname.innerHTML = "Pokedex de " + localStorage.getItem("name");
+    }
 } else {
-    hname.innerHTML = "Pokedex de " + localStorage.getItem("name");
+    if (localStorage.getItem("name") === null) {
+        hname.innerHTML = "Pokedex";
+    } else {
+        hname.innerHTML = "Pokedex de " + localStorage.getItem("name");
+    }
 }
+
+
 
 let pat = localStorage.getItem("b1");
 if (pat === null) {
@@ -1203,7 +1214,7 @@ deletarea.addEventListener('mouseout', function(e) {
 
                     //console.log(type);
                     if (type === 'grass' || type === 'bug' && type2 !== 'flying') {
-                        console.log('tondeuez');
+                        //console.log('tondeuez');
                         let tondeuse = document.querySelector('.mt-image');
                         tondeuse.classList.add('appear');
                         let audio = new Audio('sound_effects/mt.mp3');
@@ -1276,8 +1287,8 @@ etuit.addEventListener('click', function() {
     }
 });
 
-let overlay = document.querySelector('.overlay');
-overlay.addEventListener('click', function() {
+let overlayb = document.querySelector('.overlayb');
+overlayb.addEventListener('click', function() {
     let etuitarea = document.querySelector('.etuitarea');
     if (!etuitarea.classList.contains('ninja')) {
         etuitarea.classList.add('ninja');
